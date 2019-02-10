@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DAL.Interfaces;
+using DAL.Services;
 
 namespace UnitTestProject
 {
@@ -9,11 +10,17 @@ namespace UnitTestProject
     {
         private ILoginService service;
 
+        public LoginServiceTests()
+        {
+            this.service = new LoginService(DatabaseFactory.Create());
+        }
+
         [TestMethod]
         public void LoginAttemptWithRightDetails()
         {
-            //var result = this.service.Attempt("gosho", "123321");
-            var result = "test";
+            //this.service = DatabaseFactory.Create();
+            var result = this.service.Attempt("gosho", "123321");
+            //var result = "test";
             Assert.AreEqual("correct", result);
         }
     }

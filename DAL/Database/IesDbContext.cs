@@ -16,7 +16,12 @@ namespace DAL.Database
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;
-            
+        }
+
+        public IesDbContext(string con) : base(con)
+        {
+            Configuration.ProxyCreationEnabled = false;
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public override IDbSet<User> Users { get; set; }

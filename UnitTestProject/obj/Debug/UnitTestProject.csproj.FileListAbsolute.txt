@@ -13,13 +13,9 @@ C:\Users\nvj\source\repos\IES\UnitTestProject\obj\Debug\UnitTestProject.csproj.C
 C:\Users\nvj\source\repos\IES\UnitTestProject\obj\Debug\UnitTestProject.dll
 C:\Users\nvj\source\repos\IES\UnitTestProject\obj\Debug\UnitTestProject.pdb
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\DAL.dll
-C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\EntityFramework.dll
-C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\DAL.pdb
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\DAL.dll.config
-C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\EntityFramework.xml
-C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.IdentityModel.Tokens.dll
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Newtonsoft.Json.dll
@@ -29,3 +25,8 @@ C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.IdentityModel.
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Newtonsoft.Json.xml
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.IdentityModel.Logging.pdb
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.IdentityModel.Logging.xml
+C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\UnitTestProject.dll.config
+C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\EntityFramework.dll
+C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\EntityFramework.xml
+C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\EntityFramework.SqlServer.xml
