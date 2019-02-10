@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DAL.Services;
+using DAL.Interfaces;
 
 namespace UnitTestProject
 {
     [TestClass]
     public class LoginServiceTests
     {
-        private LoginService service = new LoginService();
+        private ILoginService service;
 
         [TestMethod]
         public void LoginAttemptWithRightDetails()
