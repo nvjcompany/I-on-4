@@ -72,5 +72,5 @@ C:\Users\nvj\source\repos\IES\DAL\bin\Debug\System.Configuration.ConfigurationMa
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\System.Security.AccessControl.dll
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\System.Security.Permissions.dll
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\System.Security.Principal.Windows.dll
-C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.Migrations.UserAddons.resources
+C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

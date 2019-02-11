@@ -2,9 +2,8 @@
 
 namespace DAL.Interfaces
 {
-    interface IRegisterService
+    public interface IRegisterService
     {
-        bool Register(User user);
-        bool Register(User user, string role);
+        string Register(User user, string role);
     }
 }

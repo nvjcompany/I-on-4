@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL.Database;
+using DAL.Helpers;
+using DAL.Interfaces;
+using DAL.JWT;
+using DAL.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +15,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
 
 namespace WebApplication1
 {
@@ -31,6 +38,33 @@ namespace WebApplication1
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = "ies-is-awesome",
+                        ValidAudience = "readers",
+                        IssuerSigningKey = JWTConfig.SymmetricKey
+
+                    };
+                });
+
+            services.AddCors(o => o.AddPolicy("corsFixLocalhost", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
+            services.AddSingleton<IDbContext, IesDbContext>();
+            services.AddTransient<IIdentityHelper, IdentityHelper>();
+            services.AddTransient<IRegisterService, RegisterService>();
+            services.AddTransient<ILoginService, LoginService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

@@ -57,7 +57,7 @@ namespace DAL.Services
             this.context = context;
         }
 
-        public JwtSecurityToken Attempt(string email, string password)
+        public string Attempt(string email, string password)
         {
             User u = this.context.Users
                 .Include(user => user.Roles)
@@ -68,15 +68,15 @@ namespace DAL.Services
             {
                 return null;
             }
-
+            
             var hash = new PasswordHasher();
             if (hash.VerifyHashedPassword(u.PasswordHash, password)
                 == PasswordVerificationResult.Failed)
             {
                 return null;
             }
-
-            return this.GenerateToken(u);
+            
+            return new JwtSecurityTokenHandler().WriteToken(this.GenerateToken(u));
         }
     }
 }

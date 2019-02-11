@@ -1,16 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DAL.Database;
+using DAL.Interfaces;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Helpers
 {
-    public class IdentityHelper
+    public class IdentityHelper : IIdentityHelper
     {
-        public IdentityHelper()
-        {
+        private IDbContext context;
 
+        public IdentityHelper(IDbContext context)
+        {
+            this.context = context;
+        }
+
+        public IdentityRole GetRoleByName(string roleName)
+        {
+            return this.context
+                 .Roles
+                 .Where(x => x.Name == roleName)
+                 .FirstOrDefault();
         }
     }
 }

@@ -163,6 +163,7 @@
     <Compile Include="Database\IesDbContext.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Helpers\IdentityHelper.cs" />
+    <Compile Include="Interfaces\IIdentityHelper.cs" />
     <Compile Include="Interfaces\ILoginService.cs" />
     <Compile Include="Interfaces\IRegisterService.cs" />
     <Compile Include="JWT\JWTConfig.cs" />

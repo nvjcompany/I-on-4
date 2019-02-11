@@ -5,6 +5,6 @@ namespace DAL.Interfaces
 {
     public interface ILoginService
     {
-        JwtSecurityToken Attempt(string email, string password);
+        string Attempt(string email, string password);
     }
 }
