@@ -19,9 +19,9 @@ namespace UnitTestProject
         public void LoginAttemptWithRightDetails()
         {
             //this.service = DatabaseFactory.Create();
-            var result = this.service.Attempt("gosho", "123321");
+            var result = this.service.Attempt("test221@abv.bg", "test");
             //var result = "test";
-            Assert.AreEqual("correct", result);
+            Assert.IsTrue(result != null);
         }
     }
 }

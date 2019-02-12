@@ -25,7 +25,6 @@ namespace DAL.Services
 
             foreach (var role in roles)
             {
-
                 claims.Add(new Claim(ClaimTypes.Role,
                     roleNames.Find(r => r.Id == role.RoleId).Name));
             }
@@ -41,7 +40,7 @@ namespace DAL.Services
                 SecurityAlgorithms.HmacSha256Signature);
             //Claims
             List<Claim> claims = this.GetUserClaims(u.Roles);
-
+            claims.Add(new Claim("SmthElse", "SmthElse"));
             var token = new JwtSecurityToken(
                 issuer: "ies-is-awesome",
                 audience: "readers",
@@ -68,14 +67,14 @@ namespace DAL.Services
             {
                 return null;
             }
-            
+
             var hash = new PasswordHasher();
             if (hash.VerifyHashedPassword(u.PasswordHash, password)
                 == PasswordVerificationResult.Failed)
             {
                 return null;
             }
-            
+
             return new JwtSecurityTokenHandler().WriteToken(this.GenerateToken(u));
         }
     }

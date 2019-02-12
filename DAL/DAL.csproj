@@ -161,6 +161,8 @@
   <ItemGroup>
     <Compile Include="Database\IDbContext.cs" />
     <Compile Include="Database\IesDbContext.cs" />
+    <Compile Include="Entities\Campaign.cs" />
+    <Compile Include="Entities\City.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Helpers\IdentityHelper.cs" />
     <Compile Include="Interfaces\IIdentityHelper.cs" />

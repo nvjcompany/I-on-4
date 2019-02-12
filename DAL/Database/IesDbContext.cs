@@ -25,7 +25,5 @@ namespace DAL.Database
         }
 
         public override IDbSet<User> Users { get; set; }
-        //DbSet<User> IDbContext.Users { get => throw new NotImplementedException();}
-        //DbSet<IdentityRole> IDbContext.Roles { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

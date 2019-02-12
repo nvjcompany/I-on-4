@@ -50,7 +50,6 @@ namespace WebApplication1
                         ValidIssuer = "ies-is-awesome",
                         ValidAudience = "readers",
                         IssuerSigningKey = JWTConfig.SymmetricKey
-
                     };
                 });
 
