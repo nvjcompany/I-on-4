@@ -163,6 +163,8 @@
     <Compile Include="Database\IesDbContext.cs" />
     <Compile Include="Entities\Campaign.cs" />
     <Compile Include="Entities\City.cs" />
+    <Compile Include="Entities\Company.cs" />
+    <Compile Include="Entities\Listing.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Helpers\IdentityHelper.cs" />
     <Compile Include="Interfaces\IIdentityHelper.cs" />
@@ -180,6 +182,10 @@
     <Compile Include="Migrations\201902101648113_UserAddons.cs" />
     <Compile Include="Migrations\201902101648113_UserAddons.Designer.cs">
       <DependentUpon>201902101648113_UserAddons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902121940025_NewColumns.cs" />
+    <Compile Include="Migrations\201902121940025_NewColumns.Designer.cs">
+      <DependentUpon>201902121940025_NewColumns.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902101648113_UserAddons.resx">
       <DependentUpon>201902101648113_UserAddons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902121940025_NewColumns.resx">
+      <DependentUpon>201902121940025_NewColumns.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

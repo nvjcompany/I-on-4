@@ -16,5 +16,9 @@ namespace DAL.Database
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         IDbSet<User> Users { get; set; }
         IDbSet<IdentityRole> Roles { get; set; }
+        IDbSet<City> Cities { get; set; }
+        IDbSet<Campaign> Campaigns { get; set; }
+        IDbSet<Listing> Listings { get; set; }
+        IDbSet<Company> Companies { get; set; }
     }
 }
