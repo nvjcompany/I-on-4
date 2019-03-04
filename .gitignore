@@ -1,3 +1,4 @@
 TestResults/
 .vs/
 AngularFE/node_modules/
+DAL/App.config
