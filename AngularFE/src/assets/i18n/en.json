@@ -4,5 +4,17 @@
         "my-profile": "My Profile",
         "applications": "Applications",
         "exit": "Exit"
+    },
+    "home": {
+        "title": "Find your best internship program!",
+        "title-lead": "You are future!"
+    },
+    "featured-companies": {
+        "title": "Featured Companies"
+    },
+    "creators": {
+        "title": "Creators",
+        "ivan-zhelev": "Ivan Zhelev",
+        "ivan-ivanov": "Ivan Ivanov"
     }
 }

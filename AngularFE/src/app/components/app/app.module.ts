@@ -13,11 +13,14 @@ import { IdentityService } from '../../core/services/auth/identity/identity.serv
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { LogoutModule } from '../logout/logout.module';
+import { HomePageModule } from '../home-page/home-page.module';
+import { FooterComponent } from '../footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,7 @@ import { LogoutModule } from '../logout/logout.module';
     LoginModule,
     LogoutModule,
     DashboardModule,
+    HomePageModule,
     RouterModule.forRoot([]),
     HttpClientModule,
     TranslateModule.forRoot({
