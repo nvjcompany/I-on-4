@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EndpointServices.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EndpointServices.Controllers
@@ -10,10 +11,11 @@ namespace EndpointServices.Controllers
     public class TestController : Controller
     {
         [Route("api/test")]
-        public IActionResult Index()
+        public IActionResult Index(TestViewModel model)
         {
-            string test = "test";
-            return Json(test);
+            dynamic d = new { name = "Gosho" };
+
+            return Json(d);
         }
     }
 }

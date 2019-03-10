@@ -18,7 +18,6 @@ C:\Users\nvj\source\repos\IES\DAL\bin\Debug\EntityFramework.dll
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.EntityFrameworkCore.dll
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
@@ -45,7 +44,6 @@ C:\Users\nvj\source\repos\IES\DAL\bin\Debug\EntityFramework.xml
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.EntityFrameworkCore.xml
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
@@ -74,3 +72,5 @@ C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.dll
 C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.pdb
+C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.Migrations.ApplicationTable.resources
+C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using DAL.Interfaces;
+using EndpointServices.Helpers;
 using EndpointServices.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EndpointServices.Controllers
 {
     [ApiController]
-    public class LoginController : Controller
+    public partial class LoginController : Controller
     {
         ILoginService service;
 
@@ -38,6 +40,10 @@ namespace EndpointServices.Controllers
         [Route("api/login-test")]
         public IActionResult TestUserLogin()
         {
+            //var userId = this.User.Claims.Where(x => x.Type == "UserId").First().Value;
+            var userId = ClaimsHelper.GetUserId(this.User);
+            var role = ClaimsHelper.GetUserRole(this.User);
+            //role.Value
             var types = this.User.Claims.Select(x => new
             {
                 Value = x.Value,

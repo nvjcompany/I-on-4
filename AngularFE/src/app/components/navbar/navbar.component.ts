@@ -4,7 +4,6 @@ import { IdentityService } from '../../core/services/auth/identity/identity.serv
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent
 {

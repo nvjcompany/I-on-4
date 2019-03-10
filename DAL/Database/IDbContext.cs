@@ -20,5 +20,6 @@ namespace DAL.Database
         IDbSet<Campaign> Campaigns { get; set; }
         IDbSet<Listing> Listings { get; set; }
         IDbSet<Company> Companies { get; set; }
+        IDbSet<Application> Applications { get; set; }
     }
 }

@@ -15,6 +15,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { LogoutModule } from '../logout/logout.module';
 import { HomePageModule } from '../home-page/home-page.module';
 import { FooterComponent } from '../footer/footer.component';
+import { RegisterModule } from '../register/register.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FooterComponent } from '../footer/footer.component';
     LogoutModule,
     DashboardModule,
     HomePageModule,
+    RegisterModule,
     RouterModule.forRoot([]),
     HttpClientModule,
     TranslateModule.forRoot({

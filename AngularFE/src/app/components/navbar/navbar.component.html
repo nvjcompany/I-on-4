@@ -6,10 +6,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a *ngIf="!identityService.isLoggedIn()" class="nav-item nav-link active"
+        <a *ngIf="!identityService.isLoggedIn()" class="nav-item nav-link"
          routerLinkActive="active" routerLink="/login">
           Login <span class="sr-only">(current)</span>
         </a>
+        <a *ngIf="!identityService.isLoggedIn()" class="nav-item nav-link"
+         routerLinkActive="active" routerLink="/register">
+          Register <span class="sr-only">(current)</span>
+        </a>
+
         <a *ngIf="identityService.isLoggedIn()" class="nav-item nav-link" routerLinkActive="active" routerLink="/dashboard">
           Dashboard
         </a>
