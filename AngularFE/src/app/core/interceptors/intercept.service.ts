@@ -17,13 +17,18 @@ export class InterceptService implements HttpInterceptor
 
     intercept(request: HttpRequest<any>, next: HttpHandler) : Observable<HttpEvent<any>>
     {
-        const URL = 'https://localhost:44336/api/'
-        request = request.clone({
-            setHeaders: {
-                Authorization: `Bearer ${localStorage.getItem('AUTH_TOKEN')}`
-            },
-            url: URL + request.url
-        });
+        const URL = 'https://localhost:44336/api/';
+        if(request.url.indexOf('i18n') === -1)
+        {
+            request = request.clone({
+                setHeaders: {
+                    Authorization: `Bearer ${localStorage.getItem('AUTH_TOKEN')}`
+                },
+                url: URL + request.url
+            });
+        }
+
+        
 
         return next.handle(request)
         .pipe(tap (event => {

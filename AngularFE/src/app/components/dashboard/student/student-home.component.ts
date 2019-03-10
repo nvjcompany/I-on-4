@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student-home',
@@ -8,20 +8,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StudentHomeComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private router: Router) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  test()
-  {
-    this.httpClient.post('login-test',{})
-    .toPromise()
-    .then(r=>{
-      console.log(r);
-    },
-    err =>{
-
-    });
+  redirect(url){
+    this.router.navigateByUrl(url);
   }
 }

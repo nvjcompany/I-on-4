@@ -3,6 +3,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class IdentityService
 {
+    public logout()
+    {
+        localStorage.removeItem('AUTH_TOKEN');
+        localStorage.removeItem('ROLE');
+    }
+
     public setToken(token: string): void
     {
         localStorage.setItem('AUTH_TOKEN', token);

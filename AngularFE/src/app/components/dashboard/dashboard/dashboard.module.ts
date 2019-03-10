@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard.component';
 import { CommonModule } from '@angular/common';  
 import { BrowserModule } from '@angular/platform-browser';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     DashboardRoutingModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    TranslateModule
   ],
   providers:[]
 })

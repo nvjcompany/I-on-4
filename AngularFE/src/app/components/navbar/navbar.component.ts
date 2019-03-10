@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IdentityService } from '../../core/services/auth/identity/identity.service';
 
 @Component({
@@ -6,13 +6,7 @@ import { IdentityService } from '../../core/services/auth/identity/identity.serv
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
-
-  public isLogged: boolean;
+export class NavbarComponent
+{
   constructor(private identityService: IdentityService) { }
-
-  ngOnInit() {
-    this.isLogged = this.identityService.isLoggedIn();
-  }
-
 }
