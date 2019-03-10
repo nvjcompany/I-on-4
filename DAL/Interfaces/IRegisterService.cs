@@ -1,9 +1,10 @@
 ﻿using DAL.Entities;
+using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
     public interface IRegisterService
     {
-        string Register(User user, string role);
+        Task<string> Register(User user, string role);
     }
 }

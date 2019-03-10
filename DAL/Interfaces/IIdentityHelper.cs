@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
     public interface IIdentityHelper
     {
-        IdentityRole GetRoleByName(string roleName);
+        Task<IdentityRole> GetRoleById(string roleId);
+        Task<IdentityRole> GetRoleByName(string roleName);
     }
 }

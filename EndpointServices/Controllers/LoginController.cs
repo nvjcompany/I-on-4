@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DAL.Interfaces;
 using EndpointServices.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EndpointServices.Controllers
@@ -21,15 +22,28 @@ namespace EndpointServices.Controllers
 
         [HttpPost]
         [Route("api/login")]
-        public IActionResult Login(LoginViewModel user)
+        public async Task<IActionResult> Login(LoginViewModel user)
         {
-            var token = this.service.Attempt(user.Email, user.Password);
-            if (token == null)
+            var tupple = await this.service.Attempt(user.Email, user.Password);
+            if (tupple.token == null)
             {
-                return NotFound();
+                return NotFound(tupple.message);
             }
 
-            return Json(token);
+            return Json(new LoginResponseViewModel(tupple.token, tupple.message));
+        }
+
+        [Authorize(Roles = "Administrator, Company, Student")]
+        [HttpPost]
+        [Route("api/login-test")]
+        public IActionResult TestUserLogin()
+        {
+            var types = this.User.Claims.Select(x => new
+            {
+                Value = x.Value,
+                name = x.Type
+            }).ToList();
+            return Json(types);
         }
     }
 }

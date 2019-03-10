@@ -5,6 +5,6 @@ namespace DAL.Interfaces
 {
     public interface ILoginService
     {
-        string Attempt(string email, string password);
+        Task<(string token, string message)> Attempt(string email, string password);
     }
 }

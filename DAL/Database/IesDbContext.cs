@@ -19,18 +19,6 @@ namespace DAL.Database
             Configuration.LazyLoadingEnabled = false;
         }
 
-        public IesDbContext(string con) : base(con)
-        {
-            Configuration.ProxyCreationEnabled = false;
-            Configuration.LazyLoadingEnabled = false;
-        }
-
-        /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            //modelBuilder.Entity<User>()
-              //  .HasMany<Company>()
-        }*/
-
         public override IDbSet<User> Users { get; set; }
         public IDbSet<City> Cities { get; set; }
         public IDbSet<Campaign> Campaigns { get; set; }

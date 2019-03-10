@@ -13,7 +13,7 @@ namespace DAL.Database
     public interface IDbContext
     {
         int SaveChanges();
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+        Task<int> SaveChangesAsync();
         IDbSet<User> Users { get; set; }
         IDbSet<IdentityRole> Roles { get; set; }
         IDbSet<City> Cities { get; set; }

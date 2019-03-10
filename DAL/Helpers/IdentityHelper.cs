@@ -2,6 +2,8 @@
 using DAL.Interfaces;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Linq;
+using System.Data.Entity;
+using System.Threading.Tasks;
 
 namespace DAL.Helpers
 {
@@ -14,12 +16,20 @@ namespace DAL.Helpers
             this.context = context;
         }
 
-        public IdentityRole GetRoleByName(string roleName)
+        public async Task<IdentityRole> GetRoleById(string roleId)
         {
-            return this.context
+            return await this.context
+                .Roles
+                .Where(x => x.Id == roleId)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<IdentityRole> GetRoleByName(string roleName)
+        {
+            return await this.context
                  .Roles
                  .Where(x => x.Name == roleName)
-                 .FirstOrDefault();
+                 .FirstOrDefaultAsync();
         }
     }
 }

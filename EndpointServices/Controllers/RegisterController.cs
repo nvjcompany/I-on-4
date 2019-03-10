@@ -23,9 +23,9 @@ namespace EndpointServices.Controllers
 
         [HttpPost]
         [Route("api/register")]
-        public IActionResult Index(RegisterViewModel model)
+        public async Task<IActionResult> Index(RegisterViewModel model)
         {
-            var result = this.service.Register(new User()
+            var result = await this.service.Register(new User()
             {
                 Name = model.Name,
                 LastName = model.LastName,

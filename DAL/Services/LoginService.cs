@@ -11,16 +11,24 @@ using System.Data.Entity;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace DAL.Services
 {
     public class LoginService : ILoginService
     {
         private IDbContext context;
+        private IIdentityHelper identityHelper;
 
-        private List<Claim> GetUserClaims(ICollection<IdentityUserRole> roles)
+        public LoginService(IIdentityHelper identityHelper, IDbContext context)
         {
-            var roleNames = this.context.Roles.ToList();
+            this.context = context;
+            this.identityHelper = identityHelper;
+        }
+
+        private async Task<List<Claim>> GetUserClaims(ICollection<IdentityUserRole> roles)
+        {
+            var roleNames = await this.context.Roles.ToListAsync();
             var claims = new List<Claim>();
 
             foreach (var role in roles)
@@ -34,13 +42,12 @@ namespace DAL.Services
             return claims;
         }
 
-        private JwtSecurityToken GenerateToken(User u)
+        private async Task<JwtSecurityToken> GenerateToken(User u)
         {
             var signingCredentials = new SigningCredentials(JWTConfig.SymmetricKey,
                 SecurityAlgorithms.HmacSha256Signature);
             //Claims
-            List<Claim> claims = this.GetUserClaims(u.Roles);
-            claims.Add(new Claim("SmthElse", "SmthElse"));
+            List<Claim> claims = await this.GetUserClaims(u.Roles);
             var token = new JwtSecurityToken(
                 issuer: "ies-is-awesome",
                 audience: "readers",
@@ -51,31 +58,30 @@ namespace DAL.Services
             return token;
         }
 
-        public LoginService(IDbContext context)
+        public async Task<(string token, string message)> Attempt(string email, string password)
         {
-            this.context = context;
-        }
-
-        public string Attempt(string email, string password)
-        {
-            User u = this.context.Users
+            User u = await this.context.Users
                 .Include(user => user.Roles)
                 .Where(x => x.Email == email)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
             if (u == null)
             {
-                return null;
+                return (null, "not-existing-user");
             }
 
             var hash = new PasswordHasher();
             if (hash.VerifyHashedPassword(u.PasswordHash, password)
                 == PasswordVerificationResult.Failed)
             {
-                return null;
+                return (null, "wrong-password");
             }
 
-            return new JwtSecurityTokenHandler().WriteToken(this.GenerateToken(u));
+            string token = new JwtSecurityTokenHandler().WriteToken(await this.GenerateToken(u));
+            IdentityRole role = await this.identityHelper.GetRoleById(u.Roles.First().RoleId);
+            string roleName = role.Name;
+
+            return (token, roleName);
         }
     }
 }

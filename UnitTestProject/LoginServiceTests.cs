@@ -10,18 +10,17 @@ namespace UnitTestProject
     {
         private ILoginService service;
 
-        public LoginServiceTests()
+        public LoginServiceTests(ILoginService service)
         {
-            this.service = new LoginService(DatabaseFactory.Create());
+            //this.service = new LoginService(DatabaseFactory.Create());
         }
 
         [TestMethod]
-        public void LoginAttemptWithRightDetails()
+        public async void LoginAttemptWithRightDetails()
         {
-            //this.service = DatabaseFactory.Create();
-            var result = this.service.Attempt("test221@abv.bg", "test");
-            //var result = "test";
-            Assert.IsTrue(result != null);
+            var result = await this.service.Attempt("test221@abv.bg", "test");
+            Assert.IsNotNull(result.token);
+            Assert.IsNotNull(result.message);
         }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DAL.Services
 {
@@ -13,17 +14,17 @@ namespace DAL.Services
         private IDbContext context;
         private IIdentityHelper helper;
 
-        private object CheckExistingUser(User user)
+        private async Task<object> CheckExistingUser(User user)
         {
-            return this.context.Users
+            return await this.context.Users
                 .Select(x => new { x.Id, x.Email })
                 .Where(x => x.Email == user.Email)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
         }
 
-        private bool AssignRoleToUser(User user, string role)
+        private async Task<bool> AssignRoleToUser(User user, string role)
         {
-            var selectedRole = this.helper.GetRoleByName(role);
+            var selectedRole = await this.helper.GetRoleByName(role);
             if (selectedRole == null) { throw new Exception("Not Existing Role"); }
 
             var roleIdentity = new IdentityUserRole()
@@ -34,7 +35,7 @@ namespace DAL.Services
 
             user.Roles.Add(roleIdentity);
 
-            return this.context.SaveChanges() >= 1 ? true : false;
+            return await this.context.SaveChangesAsync() >= 1 ? true : false;
         }
 
         public RegisterService(IDbContext context, IIdentityHelper helper)
@@ -43,17 +44,17 @@ namespace DAL.Services
             this.helper = helper;
         }
 
-        public string Register(User user, string role)
+        public async Task<string> Register(User user, string role)
         {
-            if (this.CheckExistingUser(user) != null)
+            if (await this.CheckExistingUser(user) != null)
             {
                 return "existing-email";
             }
 
             this.context.Users.Add(user);
-            this.context.SaveChanges();
+            await this.context.SaveChangesAsync();
 
-            if (this.AssignRoleToUser(user, role))
+            if (await this.AssignRoleToUser(user, role))
             {
                 return "success";
             }
