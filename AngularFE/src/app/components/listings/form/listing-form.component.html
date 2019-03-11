@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1>
+        {{'listings.heading' | translate}}
+      </h1>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <label for="title">{{'listings.title' | translate}}</label>
+        <input
+          type="text" class="form-control"
+          id="title" [(ngModel)]="listing.title"
+        />
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <label>{{'listings.register-from'}}</label>
+        <ng-datepicker
+          [options]="datepickerConfigService.getConfig()"
+          [(ngModel)]="listing.registerFrom"></ng-datepicker>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <label>{{'listings.register-to'}}</label>
+        <ng-datepicker
+          [options]="datepickerConfigService.getConfig()"
+          [(ngModel)]="listing.registerTo"></ng-datepicker>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <label>{{'listings.description' | translate}}</label>
+        <angular-editor
+          [config]="editorConfigService.getConfig()"
+          [(ngModel)]="listing.description"></angular-editor>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <label for="city">{{'listings.select-city' | translate}}</label>
+        <select id="city" class="form-control" [(ngModel)]="listing.cityId">
+          <option
+            [ngValue]="city.id"
+            *ngFor="let city of cities"
+            [selected]="listing.cityId==city.id"
+          >
+            {{city.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <label for="positions">{{'listings.total-open-positions' | translate}}</label>
+        <input
+          type="number" min="1" id="positions"
+          max="20" class="form-control"
+          [(ngModel)]="listing.totalPositions"
+        />
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <button (click)="saveListing()" class="btn btn-primary">
+          {{'save' | translate}}
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

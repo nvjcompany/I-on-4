@@ -2,20 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {InterceptService} from '../../core/interceptors/intercept.service';
+import { InterceptService } from '../../core/interceptors/intercept.service';
 import { AppRoutingModule } from '../../core/app-routing/app-routing.module'
-import { LoginModule } from '../../components/login/login.module';
-import { DashboardModule } from '../../components/dashboard/dashboard/dashboard.module';
+import { LoginModule } from '../login/login.module';
+import { DashboardModule } from '../dashboard/dashboard/dashboard.module';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from '../navbar/navbar.component';
 import { IdentityService } from '../../core/services/auth/identity/identity.service';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LogoutModule } from '../logout/logout.module';
 import { HomePageModule } from '../home-page/home-page.module';
 import { FooterComponent } from '../footer/footer.component';
 import { RegisterModule } from '../register/register.module';
+import { ListingsModule } from '../listings/listings.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { RegisterModule } from '../register/register.module';
     AppRoutingModule,
     LoginModule,
     LogoutModule,
+    ListingsModule,
     DashboardModule,
     HomePageModule,
     RegisterModule,

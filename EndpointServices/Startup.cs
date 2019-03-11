@@ -37,7 +37,7 @@ namespace EndpointServices
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -60,10 +60,10 @@ namespace EndpointServices
             }));
 
             services.AddSingleton<IDbContext, IesDbContext>();
+            services.AddSingleton<IStaticDataService, StaticDataService>();
             services.AddTransient<IIdentityHelper, IdentityHelper>();
             services.AddTransient<IRegisterService, RegisterService>();
             services.AddTransient<ILoginService, LoginService>();
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
