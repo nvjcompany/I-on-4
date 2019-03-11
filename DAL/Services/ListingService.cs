@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Entity;
 using System.Threading.Tasks;
 
 namespace DAL.Services
@@ -27,8 +28,26 @@ namespace DAL.Services
             }
 
             listing.CampaignId = campaign.Id;
+            //to do find company by userId
 
             return await base.Create(listing);
+        }
+
+        public async Task<bool> Update(string userId, Listing listing)
+        {
+            //to do find company by userId
+            int companyId = 1;
+
+            var isExistListing = await this.db.Listings
+                .Where(l => l.Id == listing.Id && companyId == listing.CompanyId)
+                .FirstOrDefaultAsync();
+
+            if (isExistListing == null)
+            {
+                return false;
+            }
+
+            return await base.Update(listing);
         }
     }
 }

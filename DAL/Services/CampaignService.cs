@@ -12,7 +12,6 @@ namespace DAL.Services
 {
     public class CampaignService : BaseService<Campaign>, ICampaignService
     {
-
         public CampaignService(IDbContext db) : base(db)
         {
         }
