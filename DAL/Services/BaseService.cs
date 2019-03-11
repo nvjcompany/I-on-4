@@ -11,7 +11,7 @@ namespace DAL.Services
 {
     public abstract class BaseService<T> : IMaintanable<T> where T : class, IEntityWithId
     {
-        IDbContext db;
+        protected IDbContext db;
 
         private async Task<bool> SaveChanges()
         {
@@ -22,6 +22,7 @@ namespace DAL.Services
             }
             catch (Exception e)
             {
+                throw new Exception(e.Message);
                 return false;
             }
         }

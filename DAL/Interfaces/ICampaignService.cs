@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    public interface IListingService : IMaintanable<Listing>
-    { }
+    public interface ICampaignService : IMaintanable<Campaign>
+    {
+        Task<Campaign> GetActiveCampaign();
+    }
 }

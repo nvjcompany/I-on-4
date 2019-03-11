@@ -73,4 +73,3 @@ C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.dll
 C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.pdb
 C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.Migrations.ApplicationTable.resources
-C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

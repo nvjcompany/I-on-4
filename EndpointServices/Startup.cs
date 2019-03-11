@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DAL.Database;
+using DAL.Entities;
 using DAL.Helpers;
 using DAL.Interfaces;
 using DAL.JWT;
@@ -64,6 +65,8 @@ namespace EndpointServices
             services.AddTransient<IIdentityHelper, IdentityHelper>();
             services.AddTransient<IRegisterService, RegisterService>();
             services.AddTransient<ILoginService, LoginService>();
+            services.AddTransient<IListingService, ListingService>();
+            services.AddTransient<ICampaignService, CampaignService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

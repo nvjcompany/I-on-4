@@ -165,6 +165,7 @@
     <Compile Include="Entities\Listing.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Helpers\IdentityHelper.cs" />
+    <Compile Include="Interfaces\ICampaignService.cs" />
     <Compile Include="Interfaces\IEntityWithId.cs" />
     <Compile Include="Interfaces\IIdentityHelper.cs" />
     <Compile Include="Interfaces\IListingService.cs" />
@@ -196,6 +197,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\CampaignService.cs" />
     <Compile Include="Services\ListingService.cs" />
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\RegisterService.cs" />

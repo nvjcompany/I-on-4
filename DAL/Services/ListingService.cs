@@ -1,4 +1,5 @@
 ﻿using DAL.Database;
+using DAL.Entities;
 using DAL.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,26 @@ using System.Threading.Tasks;
 
 namespace DAL.Services
 {
-    public class ListingService<Listing> : BaseService<Listing> where Listing : class, IEntityWithId, IListingService<Listing>
+    public class ListingService : BaseService<Listing>, IListingService
     {
-        public ListingService(IDbContext db) : base(db)
-        {
+        ICampaignService campaignService;
 
+        public ListingService(IDbContext db, ICampaignService campaignService) : base(db)
+        {
+            this.campaignService = campaignService;
+        }
+
+        public async Task<bool> Create(string userId, Listing listing)
+        {
+            var campaign = await this.campaignService.GetActiveCampaign();
+            if (campaign == null)
+            {
+                return false;
+            }
+
+            listing.CampaignId = campaign.Id;
+
+            return await base.Create(listing);
         }
     }
 }

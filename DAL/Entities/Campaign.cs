@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Entities
 {
-    public class Campaign
+    public class Campaign : IEntityWithId
     {
         public Campaign()
         {
