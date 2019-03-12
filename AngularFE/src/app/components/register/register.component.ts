@@ -10,14 +10,15 @@ import { RegisterService } from '../../core/services/auth/register/register.serv
 export class RegisterComponent
 {
   public user: RegisterViewModel = new RegisterViewModel();
-  constructor(private service: RegisterService) {}
+
+  constructor(private service: RegisterService,) {}
 
   registerUser(){
     //await result;
-    alert('ff');
-    this.service.doSimpleRequest(this.user)
+    
+    this.service.registerUser(this.user)
     .then(user=>{
-      this.user.email = user.name;
+      alert('Successful registration!');  
     });
   }
 
