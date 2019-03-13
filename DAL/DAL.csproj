@@ -164,15 +164,19 @@
     <Compile Include="Entities\Company.cs" />
     <Compile Include="Entities\Listing.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="ExtensionMethods\ListingUtils.cs" />
+    <Compile Include="ExtensionMethods\PaginationUtils .cs" />
+    <Compile Include="Helpers\CompanyHelper.cs" />
     <Compile Include="Helpers\IdentityHelper.cs" />
-    <Compile Include="Interfaces\ICampaignService.cs" />
-    <Compile Include="Interfaces\IEntityWithId.cs" />
-    <Compile Include="Interfaces\IIdentityHelper.cs" />
-    <Compile Include="Interfaces\IListingService.cs" />
-    <Compile Include="Interfaces\IMaintanable.cs" />
-    <Compile Include="Interfaces\ILoginService.cs" />
-    <Compile Include="Interfaces\IRegisterService.cs" />
-    <Compile Include="Interfaces\IStaticDataService.cs" />
+    <Compile Include="Interfaces\Helpers\ICompanyHelper.cs" />
+    <Compile Include="Interfaces\Services\ICampaignService.cs" />
+    <Compile Include="Interfaces\Models\IEntityWithId.cs" />
+    <Compile Include="Interfaces\Helpers\IIdentityHelper.cs" />
+    <Compile Include="Interfaces\Services\IListingService.cs" />
+    <Compile Include="Interfaces\Services\IMaintanable.cs" />
+    <Compile Include="Interfaces\Services\ILoginService.cs" />
+    <Compile Include="Interfaces\Services\IRegisterService.cs" />
+    <Compile Include="Interfaces\Services\IStaticDataService.cs" />
     <Compile Include="JWT\JWTConfig.cs" />
     <Compile Include="Migrations\201902101016174_InitialCreate.cs" />
     <Compile Include="Migrations\201902101016174_InitialCreate.Designer.cs">
@@ -202,6 +206,11 @@
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\RegisterService.cs" />
     <Compile Include="Services\StaticDataService.cs" />
+    <Compile Include="ViewModels\Auth\LoginResponseViewModel.cs" />
+    <Compile Include="ViewModels\Auth\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Auth\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Listings\CompanyListingListPageViewModel.cs" />
+    <Compile Include="ViewModels\Listings\ListingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

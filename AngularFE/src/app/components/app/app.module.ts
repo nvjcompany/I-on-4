@@ -16,6 +16,7 @@ import { HomePageModule } from '../home-page/home-page.module';
 import { FooterComponent } from '../footer/footer.component';
 import { RegisterModule } from '../register/register.module';
 import { ListingsModule } from '../listings/listings.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ListingsModule } from '../listings/listings.module';
     FooterComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     LoginModule,

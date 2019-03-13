@@ -8,6 +8,8 @@ using DAL.Entities;
 using EndpointServices.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using DAL.Interfaces.Services;
+using DAL.ViewModels.Auth;
 
 namespace EndpointServices.Controllers
 {

@@ -2,3 +2,6 @@ TestResults/
 .vs/
 AngularFE/node_modules/
 DAL/App.config
+EndpointServices/obj/
+DAL/obj/
+UnitTestProject/obj/

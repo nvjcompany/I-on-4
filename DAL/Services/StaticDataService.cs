@@ -1,6 +1,6 @@
 ﻿using DAL.Database;
 using DAL.Entities;
-using DAL.Interfaces;
+using DAL.Interfaces.Services;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

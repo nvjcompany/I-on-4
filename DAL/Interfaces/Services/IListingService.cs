@@ -1,15 +1,15 @@
 ﻿using DAL.Entities;
-using System;
+using DAL.ViewModels.Listings;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Interfaces
+namespace DAL.Interfaces.Services
 {
     public interface IListingService : IMaintanable<Listing>
     {
         Task<bool> Create(string userId, Listing listing);
         Task<bool> Update(string userId, Listing listing);
+        Task<List<Listing>> GetListings(string userId, int page);
+        Task<CompanyListingListPageViewModel> GetListingPage(string userId, int page);
     }
 }

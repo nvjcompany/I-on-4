@@ -39,8 +39,10 @@ export class InterceptService implements HttpInterceptor
             }
         },
             error => {
-                this.router.navigateByUrl('login');
-                //console.log(error)
+                if(error.status == 401 || error.status == 403)
+                {
+                    this.router.navigateByUrl('login');
+                }
             }
         ))
     }

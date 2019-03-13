@@ -5,7 +5,11 @@
         {{'listings.heading' | translate}}
       </h1>
     </div>
-
+    <div class="col-12" *ngIf="hasError">
+        <div class="alert alert-danger">
+          {{'error.all-fields-required' | translate}}
+        </div>
+    </div>
     <div class="col-12">
       <div class="form-group">
         <label for="title">{{'listings.title' | translate}}</label>

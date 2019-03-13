@@ -1,6 +1,7 @@
 ﻿using DAL.Database;
 using DAL.Entities;
-using DAL.Interfaces;
+using DAL.Interfaces.Services;
+using DAL.Interfaces.Helpers;
 using DAL.JWT;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;

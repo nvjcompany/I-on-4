@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>{{'listings.list-title' | translate}}</h1>
+    </div>
+    <div class="col-md-12 mb-3">
+      <a class="btn btn-success" routerLink="/listing/create">
+        <i class="fa fa-plus"></i>
+        {{'new' | translate}}
+      </a>
+    </div>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <tr>
+          <td>
+            {{'id' | translate}}
+          </td>
+          <td>
+            {{'title' | translate}}
+          </td>
+          <td>
+            {{'actions' | translate}}
+          </td>
+        </tr>
+        <tr *ngFor="let listing of listings">
+          <td>
+              {{listing.id}}
+          </td>
+          <td>
+              {{listing.title}}
+          </td>
+          <td>
+            <button class="btn btn-info">
+              <i class="fas fa-eye"></i>
+            </button>
+
+            <button class="btn btn-warning">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+
+            <button class="btn btn-danger">
+              <i class="fas fa-times"></i>
+            </button>
+          </td>
+        </tr>
+      </table>
+      <ngb-pagination
+        [(page)]="page"
+        [pageSize]="perPage"
+        [collectionSize]="total"
+        (pageChange)="changePage(page)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

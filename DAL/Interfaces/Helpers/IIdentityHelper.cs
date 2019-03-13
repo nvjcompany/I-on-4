@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Threading.Tasks;
 
-namespace DAL.Interfaces
+namespace DAL.Interfaces.Helpers
 {
     public interface IIdentityHelper
     {

@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DAL.Entities;
-using DAL.Interfaces;
+using DAL.Interfaces.Services;
 using EndpointServices.Helpers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using DAL.ViewModels.Listings;
+using EndpointServices.Models;
 
 namespace EndpointServices.Controllers
 {
     [ApiController]
-    [Authorize("Company")]
+    [Authorize(Roles = "Company")]
     public class ListingsController : Controller
     {
         private IListingService service;
@@ -21,19 +23,31 @@ namespace EndpointServices.Controllers
             this.service = service;
         }
 
-        [HttpPost]
-        [Route("api/listing")]
-        public async Task<IActionResult> Store(Listing listing)
+        [HttpGet]
+        [Route("api/listings")]
+        //public async Task<IActionResult> List([FromBody]PaginationViewModel model)
+        public async Task<IActionResult> List(int? page)
         {
+            //int page = model.Page != null ? model.Page.GetValueOrDefault() : 1;
+            int p = page != null ? page.GetValueOrDefault() : 1;
+            return Json(await this.service.GetListingPage(ClaimsHelper.GetUserId(this.User), p));
+        }
 
-            //Listing l = new Listing();
-            // l.CompanyId = 1;
-            //l.Title = "Test";
-            // l.RegisterFrom = DateTime.Now;
-            //l.RegisterTo = DateTime.Now;
-            //l.Description = "Description";
-            //l.CampaignId = 1;
-            await this.service.Create(ClaimsHelper.GetUserId(this.User), listing);
+        [HttpPost]
+        [Route("api/listings")]
+        public async Task<IActionResult> Store(ListingViewModel listing)
+        {
+            Listing l = new Listing();
+            l.Title = listing.Title;
+            l.RegisterTo = listing.RegisterTo;
+            l.RegisterFrom = listing.RegisterFrom;
+            l.Description = listing.Description;
+
+            if (await this.service.Create(ClaimsHelper.GetUserId(this.User), l))
+            {
+                return StatusCode(422);
+            }
+
             return Ok();
         }
 

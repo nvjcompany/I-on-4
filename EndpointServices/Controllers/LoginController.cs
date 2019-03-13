@@ -9,6 +9,8 @@ using EndpointServices.Helpers;
 using EndpointServices.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using DAL.Interfaces.Services;
+using DAL.ViewModels.Auth;
 
 namespace EndpointServices.Controllers
 {
@@ -24,7 +26,7 @@ namespace EndpointServices.Controllers
 
         [HttpPost]
         [Route("api/login")]
-        public async Task<IActionResult> Login(LoginViewModel user)
+        public async Task<IActionResult> Login([FromQuery(Name = "page")] LoginViewModel user)
         {
             var tupple = await this.service.Attempt(user.Email, user.Password);
             if (tupple.token == null)

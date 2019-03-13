@@ -1,7 +1,7 @@
 ﻿using DAL.Entities;
 using System.Threading.Tasks;
 
-namespace DAL.Interfaces
+namespace DAL.Interfaces.Services
 {
     public interface IRegisterService
     {

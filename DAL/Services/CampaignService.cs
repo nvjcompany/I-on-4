@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Data.Entity;
 using System.Threading.Tasks;
+using DAL.Interfaces.Services;
 
 namespace DAL.Services
 {
@@ -20,7 +21,7 @@ namespace DAL.Services
         {
             return await base.db.Campaigns
                 .Where(c => c.IsActiveRegistration)
-                .Where(c => c.StartDate >= DateTime.Now && c.EndDate <= DateTime.Now)
+                .Where(c => c.StartDate <= DateTime.Now && c.EndDate >= DateTime.Now)
                 .FirstOrDefaultAsync();
         }
     }

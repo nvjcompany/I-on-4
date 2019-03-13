@@ -6,6 +6,8 @@ using DAL.Database;
 using DAL.Entities;
 using DAL.Helpers;
 using DAL.Interfaces;
+using DAL.Interfaces.Helpers;
+using DAL.Interfaces.Services;
 using DAL.JWT;
 using DAL.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -60,8 +62,10 @@ namespace EndpointServices
                        .AllowAnyHeader();
             }));
 
+
             services.AddSingleton<IDbContext, IesDbContext>();
             services.AddSingleton<IStaticDataService, StaticDataService>();
+            services.AddTransient<ICompanyHelper, CompanyHelper>();
             services.AddTransient<IIdentityHelper, IdentityHelper>();
             services.AddTransient<IRegisterService, RegisterService>();
             services.AddTransient<ILoginService, LoginService>();

@@ -1,5 +1,5 @@
 ﻿using DAL.Database;
-using DAL.Interfaces;
+using DAL.Interfaces.Helpers;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Linq;
 using System.Data.Entity;

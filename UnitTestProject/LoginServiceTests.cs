@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DAL.Interfaces;
 using DAL.Services;
+using DAL.Interfaces.Services;
 
 namespace UnitTestProject
 {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-home',
@@ -8,7 +8,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CompanyHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {}
+
+  redirect(url){
+    this.router.navigateByUrl(url);
+  }
 }

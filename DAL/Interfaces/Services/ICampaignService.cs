@@ -5,10 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Interfaces
+namespace DAL.Interfaces.Services
 {
     public interface ICampaignService : IMaintanable<Campaign>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         Task<Campaign> GetActiveCampaign();
     }
 }

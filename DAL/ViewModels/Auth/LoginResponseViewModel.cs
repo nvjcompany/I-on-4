@@ -1,4 +1,4 @@
-﻿namespace EndpointServices.Models
+﻿namespace DAL.ViewModels.Auth
 {
     public class LoginResponseViewModel
     {
