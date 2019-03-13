@@ -16,7 +16,7 @@ import { HomePageModule } from '../home-page/home-page.module';
 import { FooterComponent } from '../footer/footer.component';
 import { RegisterModule } from '../register/register.module';
 import { ListingsModule } from '../listings/listings.module';
-
+import { CampaignModule } from '../campaign/campaign.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +34,7 @@ import { ListingsModule } from '../listings/listings.module';
     RegisterModule,
     RouterModule.forRoot([]),
     HttpClientModule,
+    CampaignModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

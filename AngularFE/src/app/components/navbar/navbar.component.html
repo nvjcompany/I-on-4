@@ -6,6 +6,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
+
+        <!-- start of Delete after page is ready -->
+          <a class="nav-item nav-link"
+          routerLinkActive="active" routerLink="/campaign">
+           Compaign <span class="sr-only">(current)</span>
+         </a>
+         
+         <a class="nav-item nav-link"
+          routerLinkActive="active" routerLink="/listing/create">
+           Listing <span class="sr-only">(current)</span>
+         </a>
+        <!-- end of Delete after page is ready -->
         <a *ngIf="!identityService.isLoggedIn()" class="nav-item nav-link"
          routerLinkActive="active" routerLink="/login">
           Login <span class="sr-only">(current)</span>

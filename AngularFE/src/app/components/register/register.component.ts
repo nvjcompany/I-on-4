@@ -11,7 +11,7 @@ export class RegisterComponent
 {
   public user: RegisterViewModel = new RegisterViewModel();
 
-  constructor(private service: RegisterService,) {}
+  constructor(private service: RegisterService) {}
 
   registerUser(){
     //await result;
