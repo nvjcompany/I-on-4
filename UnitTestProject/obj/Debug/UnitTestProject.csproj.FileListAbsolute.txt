@@ -1,4 +1,3 @@
-C:\Users\nvj\source\repos\IES\UnitTestProject\obj\Debug\UnitTestProject.csproj.CoreCompileInputs.cache
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
@@ -27,6 +26,7 @@ C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.VisualStudio.T
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Newtonsoft.Json.xml
 C:\Users\nvj\source\repos\IES\UnitTestProject\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\nvj\source\repos\IES\UnitTestProject\obj\Debug\UnitTestProject.csprojAssemblyReference.cache
+C:\Users\nvj\source\repos\IES\UnitTestProject\obj\Debug\UnitTestProject.csproj.CoreCompileInputs.cache
 C:\Users\nvj\source\repos\IES\UnitTestProject\obj\Debug\UnitTestProject.csproj.CopyComplete
 C:\Users\nvj\source\repos\IES\UnitTestProject\obj\Debug\UnitTestProject.dll
 C:\Users\nvj\source\repos\IES\UnitTestProject\obj\Debug\UnitTestProject.pdb

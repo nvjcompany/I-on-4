@@ -1,10 +1,3 @@
-C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.exe.config
-C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.csproj.CoreCompileInputs.cache
-C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.RazorAssemblyInfo.cache
-C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.RazorAssemblyInfo.cs
-C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.AssemblyInfoInputs.cache
-C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.AssemblyInfo.cs
-C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.csprojAssemblyReference.cache
 C:\Users\nvj\source\repos\IES\EndpointServices\bin\Debug\net471\EndpointServices.exe.config
 C:\Users\nvj\source\repos\IES\EndpointServices\bin\Debug\net471\EndpointServices.deps.json
 C:\Users\nvj\source\repos\IES\EndpointServices\bin\Debug\net471\EndpointServices.exe
@@ -186,6 +179,13 @@ C:\Users\nvj\source\repos\IES\EndpointServices\bin\Debug\net471\System.Xml.XPath
 C:\Users\nvj\source\repos\IES\EndpointServices\bin\Debug\net471\DAL.dll
 C:\Users\nvj\source\repos\IES\EndpointServices\bin\Debug\net471\DAL.pdb
 C:\Users\nvj\source\repos\IES\EndpointServices\bin\Debug\net471\DAL.dll.config
+C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.csprojAssemblyReference.cache
+C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.exe.config
+C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.csproj.CoreCompileInputs.cache
+C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.RazorAssemblyInfo.cache
+C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.RazorAssemblyInfo.cs
+C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.AssemblyInfoInputs.cache
+C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.AssemblyInfo.cs
 C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.TagHelpers.input.cache
 C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.TagHelpers.output.cache
 C:\Users\nvj\source\repos\IES\EndpointServices\obj\Debug\net471\EndpointServices.RazorCoreGenerate.cache
