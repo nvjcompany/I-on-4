@@ -28,13 +28,13 @@ namespace EndpointServices.Controllers
         [Route("api/login")]
         public async Task<IActionResult> Login(LoginViewModel user)
         {
-            var tupple = await this.service.Attempt(user.Email, user.Password);
-            if (tupple.token == null)
+            var (token, message) = await this.service.Attempt(user.Email, user.Password);
+            if (token == null)
             {
-                return NotFound(tupple.message);
+                return NotFound(message);
             }
 
-            return Json(new LoginResponseViewModel(tupple.token, tupple.message));
+            return Json(new LoginResponseViewModel(token, message));
         }
 
         [Authorize(Roles = "Administrator, Company, Student")]
@@ -48,7 +48,7 @@ namespace EndpointServices.Controllers
             //role.Value
             var types = this.User.Claims.Select(x => new
             {
-                Value = x.Value,
+                x.Value,
                 name = x.Type
             }).ToList();
             return Json(types);

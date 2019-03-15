@@ -38,5 +38,12 @@ namespace DAL.Interfaces.Services
         /// <param name="page"></param>
         /// <returns></returns>
         Task<CompanyListingListPageViewModel> GetListingPage(string userId, int page);
+
+        /// <summary>
+        /// Get listing with city and company
+        /// </summary>
+        /// <param name="listingId"></param>
+        /// <returns></returns>
+        Task<Listing> GetListingPreviewPage(int listingId);
     }
 }

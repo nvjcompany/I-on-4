@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTestProject
+namespace UnitTestProject.Factory
 {
     public static class DatabaseFactory
     {

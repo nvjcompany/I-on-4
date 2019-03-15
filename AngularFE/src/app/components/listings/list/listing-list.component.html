@@ -23,7 +23,7 @@
             {{'actions' | translate}}
           </td>
         </tr>
-        <tr *ngFor="let listing of listings">
+        <tr *ngFor="let listing of listings; let i = index;">
           <td>
               {{listing.id}}
           </td>
@@ -31,15 +31,15 @@
               {{listing.title}}
           </td>
           <td>
-            <button class="btn btn-info">
+            <a routerLink="/listing-preview/{{listing.id}}" class="btn btn-info">
               <i class="fas fa-eye"></i>
-            </button>
+            </a>
 
-            <button class="btn btn-warning">
+            <a routerLink="/listing/{{listing.id}}" class="btn btn-warning">
               <i class="fas fa-pencil-alt"></i>
-            </button>
+            </a>
 
-            <button class="btn btn-danger">
+            <button (click)="delete(i)"  class="btn btn-danger">
               <i class="fas fa-times"></i>
             </button>
           </td>

@@ -70,9 +70,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseFactory.cs" />
-    <Compile Include="LoginServiceTests.cs" />
+    <Compile Include="Factory\CampaignServiceFactory.cs" />
+    <Compile Include="Factory\CompanyHelperFactory.cs" />
+    <Compile Include="Factory\DatabaseFactory.cs" />
+    <Compile Include="Factory\ListingServiceFactory.cs" />
+    <Compile Include="Factory\StaticDataServiceFactory.cs" />
+    <Compile Include="Helpers\CompanyHelperTest.cs" />
+    <Compile Include="Factory\IdentityHelperFactory.cs" />
+    <Compile Include="Services\LoginServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ListingServiceTests.cs" />
+    <Compile Include="Services\StaticDataServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

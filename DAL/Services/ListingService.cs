@@ -13,8 +13,8 @@ namespace DAL.Services
 {
     public class ListingService : BaseService<Listing>, IListingService
     {
-        ICampaignService campaignService;
-        ICompanyHelper companyHelper;
+        private readonly ICampaignService campaignService;
+        private readonly ICompanyHelper companyHelper;
 
         public ListingService(IDbContext db,
             ICampaignService campaignService,
@@ -53,11 +53,6 @@ namespace DAL.Services
             CompanyListingListPageViewModel model = new CompanyListingListPageViewModel();
             var listings = await this.GetListings(userId, page);
 
-            if (listings == null)
-            {
-                listings = new List<Listing>();
-            }
-
             model.Listings = listings.Select(l => new ListingViewModel()
             {
                 Id = l.Id,
@@ -71,6 +66,15 @@ namespace DAL.Services
                 .CountAsync();
 
             return model;
+        }
+
+        public async Task<Listing> GetListingPreviewPage(int listingId)
+        {
+            return await this.db.Listings
+                .Where(l => l.Id.Equals(listingId))
+                .Include(x => x.Company)
+                .Include(x => x.City)
+                .FirstOrDefaultAsync();
         }
 
         public async Task<bool> Update(string userId, Listing listing)

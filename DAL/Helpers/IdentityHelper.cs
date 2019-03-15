@@ -9,7 +9,7 @@ namespace DAL.Helpers
 {
     public class IdentityHelper : IIdentityHelper
     {
-        private IDbContext context;
+        private readonly IDbContext context;
 
         public IdentityHelper(IDbContext context)
         {

@@ -18,10 +18,12 @@ namespace EndpointServices.Controllers
             this.service = service;
         }
 
+        [HttpGet]
         [Route("api/get-cities")]
         public async Task<IActionResult> GetCities()
         {
-            return Json(await this.service.GetCities());
+            var result = await this.service.GetCities();
+            return Json(result);
         }
     }
 }

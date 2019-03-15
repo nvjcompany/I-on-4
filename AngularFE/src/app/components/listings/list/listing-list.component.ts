@@ -34,6 +34,16 @@ export class ListingListComponent {
     this.load(1);
   }
 
+  delete(index)
+  {
+    let listingToDelete = this.listings[index].id;
+
+    this.listingService.delete(listingToDelete)
+      .then((isSucceed: boolean) => {
+        this.listings.splice(index,1);
+      });
+  }
+
   changePage(page)
   {
     this.load(page);

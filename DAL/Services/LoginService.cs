@@ -18,8 +18,8 @@ namespace DAL.Services
 {
     public class LoginService : ILoginService
     {
-        private IDbContext context;
-        private IIdentityHelper identityHelper;
+        private readonly IDbContext context;
+        private readonly IIdentityHelper identityHelper;
 
         public LoginService(IIdentityHelper identityHelper, IDbContext context)
         {

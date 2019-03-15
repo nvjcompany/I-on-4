@@ -166,6 +166,7 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="ExtensionMethods\ListingUtils.cs" />
     <Compile Include="ExtensionMethods\PaginationUtils .cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Helpers\CompanyHelper.cs" />
     <Compile Include="Helpers\IdentityHelper.cs" />
     <Compile Include="Interfaces\Helpers\ICompanyHelper.cs" />

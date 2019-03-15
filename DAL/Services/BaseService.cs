@@ -16,7 +16,10 @@ namespace DAL.Services
 
         private async Task<bool> SaveChanges()
         {
-            try
+            await this.db.SaveChangesAsync();
+
+            return true;
+            /*try
             {
                 await this.db.SaveChangesAsync();
                 return true;
@@ -24,8 +27,10 @@ namespace DAL.Services
             catch (Exception e)
             {
                 throw new Exception(e.Message);
+#pragma warning disable CS0162 // Unreachable code detected
                 return false;
-            }
+#pragma warning restore CS0162 // Unreachable code detected
+            }*/
         }
 
         public BaseService(IDbContext db)
@@ -55,7 +60,15 @@ namespace DAL.Services
 
         public async Task<bool> Update(T obj)
         {
-            this.db.Entry(obj).State = EntityState.Modified;
+            T existing = this.db.Set<T>().Find(obj.Id);
+            if (existing != null)
+            {
+                this.db.Entry(existing).CurrentValues.SetValues(obj);
+                //context.SaveChanges();
+            }
+
+           // this.db.Entry(obj).State = EntityState.Modified;
+            //this.db.Set<T>().Add(obj);
             return await this.SaveChanges();
         }
     }

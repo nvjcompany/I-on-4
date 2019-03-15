@@ -9,7 +9,7 @@ namespace DAL.Interfaces.Services
     public interface IMaintanable<T>
     {
         /// <summary>
-        /// Find single item from database
+        /// Find single record from database
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>

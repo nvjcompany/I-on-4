@@ -37,8 +37,8 @@ export class LoginComponent implements OnInit {
   {
     this.navigateToDashboard();
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email, Validators.minLength(4)]],
-      password: ['',[Validators.required, Validators.minLength(4)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['',[Validators.required]]
     })
 
   }
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
 
     this.loginDetails.email = this.loginForm.get('email').value;
     this.loginDetails.password = this.loginForm.get('password').value;
-
+    console.log(this.loginForm);
     this.service.attempt(this.loginDetails)
     .then(r=> {
       if(!r)

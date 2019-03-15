@@ -12,8 +12,8 @@ namespace DAL.Services
 {
     public class RegisterService : IRegisterService
     {
-        private IDbContext context;
-        private IIdentityHelper helper;
+        private readonly IDbContext context;
+        private readonly IIdentityHelper helper;
 
         private async Task<object> CheckExistingUser(User user)
         {

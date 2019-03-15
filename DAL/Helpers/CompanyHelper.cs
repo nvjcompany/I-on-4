@@ -12,7 +12,7 @@ namespace DAL.Helpers
 {
     public class CompanyHelper : ICompanyHelper
     {
-        private IDbContext db;
+        private readonly IDbContext db;
 
         public CompanyHelper(IDbContext db)
         {

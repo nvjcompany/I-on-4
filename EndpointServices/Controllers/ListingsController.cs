@@ -33,6 +33,13 @@ namespace EndpointServices.Controllers
             return Json(await this.service.GetListingPage(ClaimsHelper.GetUserId(this.User), p));
         }
 
+        [HttpGet]
+        [Route("api/listing/{id}")]
+        public async Task<IActionResult> Find(int id)
+        {
+            return Json(await this.service.GetListingPreviewPage(id));
+        }
+
         [HttpPost]
         [Route("api/listings")]
         public async Task<IActionResult> Store(ListingViewModel listing)
@@ -43,7 +50,7 @@ namespace EndpointServices.Controllers
             l.RegisterFrom = listing.RegisterFrom;
             l.Description = listing.Description;
 
-            if (await this.service.Create(ClaimsHelper.GetUserId(this.User), l))
+            if (!await this.service.Create(ClaimsHelper.GetUserId(this.User), l))
             {
                 return StatusCode(422);
             }
@@ -55,15 +62,14 @@ namespace EndpointServices.Controllers
         [Route("api/listing")]
         public async Task<IActionResult> Update(Listing listing)
         {
-            await this.service.Update(ClaimsHelper.GetUserId(this.User), listing);
-            return Ok();
+            return Ok(await this.service.Update(ClaimsHelper.GetUserId(this.User), listing));
         }
 
         [HttpDelete]
-        [Route("api/listing")]
-        public async Task<IActionResult> Delete(int listingId)
+        [Route("api/listing/{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            await this.service.Delete(new Listing() { Id = listingId });
+            await this.service.Delete(new Listing() { Id = id });
             return Ok();
         }
     }

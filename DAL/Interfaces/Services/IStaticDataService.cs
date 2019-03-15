@@ -9,6 +9,10 @@ namespace DAL.Interfaces.Services
 {
     public interface IStaticDataService
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         Task<List<City>> GetCities();
     }
 }
