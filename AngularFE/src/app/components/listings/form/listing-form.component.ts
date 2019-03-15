@@ -21,8 +21,7 @@ export class ListingFormComponent {
               private datepickerConfigService: DatePickerConfigService,
               private staticDataService: StaticDataService,
               private listingService: ListingsService,
-              private router: Router
-            )
+              private router: Router)
   {
     this.staticDataService
       .getCities()

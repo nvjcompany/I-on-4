@@ -26,7 +26,7 @@ namespace EndpointServices.Controllers
 
         [HttpPost]
         [Route("api/login")]
-        public async Task<IActionResult> Login([FromQuery(Name = "page")] LoginViewModel user)
+        public async Task<IActionResult> Login(LoginViewModel user)
         {
             var tupple = await this.service.Attempt(user.Email, user.Password);
             if (tupple.token == null)

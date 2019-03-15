@@ -10,7 +10,7 @@ namespace DAL.Interfaces.Services
     public interface ICampaignService : IMaintanable<Campaign>
     {
         /// <summary>
-        /// 
+        /// Get active campaign if exists. Else return null.
         /// </summary>
         /// <returns></returns>
         Task<Campaign> GetActiveCampaign();

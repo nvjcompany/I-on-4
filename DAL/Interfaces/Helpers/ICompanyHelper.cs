@@ -8,6 +8,11 @@ namespace DAL.Interfaces.Helpers
 {
     public interface ICompanyHelper
     {
+        /// <summary>
+        /// Get user company by userId async.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
         Task<int> GetCompanyIdByUserId(string userId);
     }
 }

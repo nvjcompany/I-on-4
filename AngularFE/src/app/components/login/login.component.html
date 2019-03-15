@@ -3,7 +3,7 @@
       <div class="card mt-5">
         <div class="card-header">
           <h3>Sign In</h3>
-          
+
           <div class="d-flex justify-content-end social_icon">
             <span><i class="fab fa-facebook-square"></i></span>
             <span><i class="fab fa-google-plus-square"></i></span>
@@ -14,28 +14,48 @@
             Wrong login details!
           </div>
         <div class="card-body">
-          
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
+          <form [formGroup]="loginForm" (ngSubmit)="attemptLogin()">
+            <div class="mb-3">
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input
+                  type="text" formControlName="email"
+                  class="form-control" placeholder="username"
+                />
               </div>
-              <input type="text" [(ngModel)]="loginDetails.email" class="form-control" placeholder="username">
-              
-            </div>
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
+
+              <div class="row" *ngIf="isSubmitted">
+                <div class="col-12 text-light">
+                  <div *ngIf="form.email.errors.email">{{'invalid-email' | translate}}</div>
+                  <div *ngIf="form.email.errors.required">{{'required-field' | translate}}</div>
+                </div>
               </div>
-              <input [(ngModel)]="loginDetails.password" type="password" class="form-control" placeholder="password">
             </div>
-            <div class="form-group">
-              <input 
-              type="submit"
-                (click)="attemptLogin()"
-                value="Login"
-                class="btn float-right login_btn"
-              />
+
+            <div class="mb-3">
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input formControlName="password"  type="password" class="form-control" placeholder="password">
+              </div>
+
+              <div class="row" *ngIf="isSubmitted">
+                <div class="col-12 text-light">
+                  <div *ngIf="form.password.errors.required">{{'required-field' | translate}}</div>
+                </div>
+              </div>
             </div>
+
+
+            <div class="form-group mt-1">
+              <div class="form-group">
+                <button class="btn btn-primary">{{'login' | translate}}</button>
+              </div>
+            </div>
+          </form>
         </div>
         <div class="card-footer">
           <div class="d-flex justify-content-center links">
