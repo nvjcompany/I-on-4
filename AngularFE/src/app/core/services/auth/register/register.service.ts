@@ -7,12 +7,12 @@ import { TestViewModel } from '../../../models/testViewModel';
 export class RegisterService{
     constructor(private http: HttpClient){}
 
-    doSimpleRequest(model: RegisterViewModel): Promise<TestViewModel>
+    registerUser(model: RegisterViewModel): Promise<boolean>
     {
         return this.http.post('test', model)
             .toPromise()
-            .then( (user: TestViewModel ) => {
-                return user;
+            .then( ( ress: boolean ) => {
+                return true;
             },
             err => {
                 throw new DOMException("ERROR");

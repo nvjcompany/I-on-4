@@ -16,8 +16,12 @@ import { HomePageModule } from '../home-page/home-page.module';
 import { FooterComponent } from '../footer/footer.component';
 import { RegisterModule } from '../register/register.module';
 import { ListingsModule } from '../listings/listings.module';
+<<<<<<< HEAD
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+=======
+import { CampaignModule } from '../campaign/campaign.module'
+>>>>>>> IvanIvanov
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +40,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     RegisterModule,
     RouterModule.forRoot([]),
     HttpClientModule,
+    CampaignModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
