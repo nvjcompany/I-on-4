@@ -19,24 +19,50 @@ export class ListingListComponent {
   public page: number = 1;
   public perPage: number = 10;
   public total: number = 0;
+  public citySearch;
+  public titleSearch;
 
-  private load(page: number): void
+  private getListings(page: number): void
   {
-    this.listingService.list(page)
+    this.listingService.list(page, this.citySearch, this.titleSearch)
       .then( (model: ListingPageViewModel) => {
         this.listings = model.listings;
         this.page = model.page;
         this.total = model.total;
       });
+  }
 
-    this.staticDataService.getCities().then((cities: CityViewModel[]) => {
+  private getCities()
+  {
+    this.staticDataService.getCities()
+      .then((cities: CityViewModel[]) => {
       this.cities = cities;
     })
   }
 
+  private load(page: number): void
+  {
+    this.getListings(page);
+    this.getCities();
+  }
+
+  search()
+  {
+    this.getListings(this.page);
+  }
+
   constructor(private listingService: ListingsService, private staticDataService: StaticDataService)
   {
+    this.citySearch = '';
+    this.titleSearch = '';
     this.load(1);
+  }
+
+  resetFilter()
+  {
+    this.citySearch = '';
+    this.titleSearch = '';
+    this.getListings(1);
   }
 
   delete(index)
@@ -45,12 +71,12 @@ export class ListingListComponent {
 
     this.listingService.delete(listingToDelete)
       .then((isSucceed: boolean) => {
-        this.listings.splice(index,1);
+        this.load(this.page);
       });
   }
 
   changePage(page)
   {
-    this.load(page);
+    this.getListings(page);
   }
 }

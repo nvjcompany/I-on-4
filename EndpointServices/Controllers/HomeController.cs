@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EndpointServices.Models;
+using DAL.Interfaces.Services;
 
 namespace EndpointServices.Controllers
 {

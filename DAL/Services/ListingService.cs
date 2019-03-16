@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using DAL.ExtensionMethods;
 using DAL.ViewModels.Listings;
 using DAL.ViewModels.Search;
+using System;
 
 namespace DAL.Services
 {
@@ -16,6 +17,22 @@ namespace DAL.Services
     {
         private readonly ICampaignService campaignService;
         private readonly ICompanyHelper companyHelper;
+
+        private async Task<bool> UserHasAcces(string userId, Listing listing)
+        {
+            int companyId = await this.companyHelper.GetCompanyIdByUserId(userId);
+
+            var isExistListing = await this.db.Listings
+                .Where(l => l.Id == listing.Id && companyId == l.CompanyId)
+                .FirstOrDefaultAsync();
+
+            if (isExistListing == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
 
         public ListingService(IDbContext db,
             ICampaignService campaignService,
@@ -47,17 +64,18 @@ namespace DAL.Services
 
             if (userId != null)
             {
-                query.WhereOwnerIs(userId);
+                query = query.WhereOwnerIs(userId);
             }
 
             if (search.Title != null)
             {
-                query.Where(l => l.Title.Contains(search.Title));
+                query = query.Where(l => l.Title.Contains(search.Title));
             }
 
             if (search.CityId != null)
             {
-                query.Where(l => l.City.Equals(search.CityId.GetValueOrDefault()));
+                int cityId = search.CityId.GetValueOrDefault();
+                query = query.Where(l => l.CityId == cityId);
             }
 
             return await query
@@ -69,6 +87,7 @@ namespace DAL.Services
         {
             CompanyListingListPageViewModel model = new CompanyListingListPageViewModel();
             var listings = await this.GetListings(userId, search);
+
 
             model.Listings = listings.Select(l => new ListingViewModel()
             {
@@ -83,6 +102,7 @@ namespace DAL.Services
                 .CountAsync();
 
             return model;
+
         }
 
         public async Task<Listing> GetListingPreviewPage(int listingId)
@@ -96,20 +116,22 @@ namespace DAL.Services
 
         public async Task<bool> Update(string userId, Listing listing)
         {
-            int companyId = await this.companyHelper.GetCompanyIdByUserId(userId);
-
-            var isExistListing = await this.db.Listings
-                .Where(l => l.Id == listing.Id && companyId == listing.CompanyId)
-                .FirstOrDefaultAsync();
-
-            if (isExistListing == null)
+            if (!await this.UserHasAcces(userId, listing))
             {
                 return false;
             }
 
-            listing.CompanyId = companyId;
-
             return await base.Update(listing);
+        }
+
+        public async Task<bool> Delete(string userId, Listing listing)
+        {
+            if (!await this.UserHasAcces(userId, listing))
+            {
+                return false;
+            }
+
+            return await this.Delete(listing);
         }
     }
 }

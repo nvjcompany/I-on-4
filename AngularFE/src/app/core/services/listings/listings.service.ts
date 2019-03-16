@@ -19,9 +19,9 @@ export class ListingsService
       });
   }
 
-  list(page: number) : Promise<ListingPageViewModel>
+  list(page: number, city: string, title: string) : Promise<ListingPageViewModel>
   {
-    return this.http.get(`listings?page=${page}`)
+    return this.http.get(`listings?page=${page}&cityId=${city}&title=${title}`)
       .toPromise()
       .then((response: ListingPageViewModel)=>{
         return response;

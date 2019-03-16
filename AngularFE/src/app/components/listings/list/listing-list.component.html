@@ -12,13 +12,17 @@
 
     <div class="col-12 col-md-4 mb-2">
       <label for="city">{{'title' | translate}}</label>
-      <input type="text" class="form-control" placeholder="{{'title' | translate}}" />
+      <input
+          type="text" class="form-control"
+          placeholder="{{'title' | translate}}"
+          [(ngModel)]="titleSearch"
+      />
     </div>
 
-    <div class="col-12 col-md-4 mb-2">
+    <div class="col-12 col-md-3 mb-2">
       <div class="form-group">
         <label for="city">{{'listings.select-city' | translate}}</label>
-         <select id="city" class="form-control">
+         <select [(ngModel)]="citySearch" id="city" class="form-control">
            <option value=""></option>
            <option
             [ngValue]="city.id"
@@ -33,9 +37,18 @@
     <div class="col-12 col-md-4">
       <div class="form-group">
         <label for="">&nbsp;</label>
-        <button class="btn btn-info btn-block">
+        <button type="button" (click)="search()" class="btn btn-info btn-block">
           <i class="fas fa-search"></i>
           {{'search' | translate}}
+        </button>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-1 mb-2">
+      <div class="form-group">
+        <label for="">&nbsp;</label>
+        <button class="btn btn-info btn-block" type="button" (click)="resetFilter()">
+          <i class="fas fa-sync"></i>
         </button>
       </div>
     </div>

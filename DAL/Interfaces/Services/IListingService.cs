@@ -46,5 +46,13 @@ namespace DAL.Interfaces.Services
         /// <param name="listingId"></param>
         /// <returns></returns>
         Task<Listing> GetListingPreviewPage(int listingId);
+
+        /// <summary>
+        /// Delete listing if user has access rights
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="listing"></param>
+        /// <returns></returns>
+        Task<bool> Delete(string userId, Listing listing);
     }
 }

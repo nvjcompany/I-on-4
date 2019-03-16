@@ -18,6 +18,19 @@ namespace UnitTestProject.Services
         private readonly User existingUserWithRoleCompany;
         private readonly Company existingUserCompany;
 
+        private Listing GetRandomDataListing()
+        {
+            Random r = new Random();
+            var l = new Listing();
+            l.RegisterFrom = DateTime.Now;
+            l.RegisterTo = DateTime.Now;
+            l.Description = "1";
+            l.CityId = 1;
+            l.Title = $"{r.Next()} Title";
+
+            return l;
+        }
+
         public ListingServiceTests()
         {
             this.service = ListingServiceFactory.Create();
@@ -56,14 +69,22 @@ namespace UnitTestProject.Services
         [TestMethod]
         public async Task CreateListingWithCorrectDetails()
         {
-            Random r = new Random();
-            Listing l = new Listing();
-            l.RegisterFrom = DateTime.Now;
-            l.RegisterTo = DateTime.Now;
-            l.Description = "1";
-            l.CityId = 1;
-            l.Title = $"{r.Next()} Title";
+            var result = await this.service.Create(existingUserWithRoleCompany.Id, this.GetRandomDataListing());
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public async Task DeleteListing()
+        {
+            var l = this.GetRandomDataListing();
+            l.Id = 9999;
+
+
             var result = await this.service.Create(existingUserWithRoleCompany.Id, l);
+            Assert.IsTrue(result);
+
+            l = this.db.Listings.Where(x => x.Id == l.Id).First();
+            result = await this.service.Delete(this.existingUserWithRoleCompany.Id, l);
             Assert.IsTrue(result);
         }
     }
