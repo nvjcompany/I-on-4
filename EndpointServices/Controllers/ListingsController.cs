@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using DAL.ViewModels.Listings;
 using EndpointServices.Models;
+using DAL.ViewModels.Search;
 
 namespace EndpointServices.Controllers
 {
@@ -26,11 +27,11 @@ namespace EndpointServices.Controllers
         [HttpGet]
         [Route("api/listings")]
         //public async Task<IActionResult> List([FromBody]PaginationViewModel model)
-        public async Task<IActionResult> List(int? page)
+        public async Task<IActionResult> List(ListingSearchViewModel model)
         {
             //int page = model.Page != null ? model.Page.GetValueOrDefault() : 1;
-            int p = page != null ? page.GetValueOrDefault() : 1;
-            return Json(await this.service.GetListingPage(ClaimsHelper.GetUserId(this.User), p));
+            int p = model.Page != null ? model.Page.GetValueOrDefault() : 1;
+            return Json(await this.service.GetListingPage(ClaimsHelper.GetUserId(this.User), model));
         }
 
         [HttpGet]

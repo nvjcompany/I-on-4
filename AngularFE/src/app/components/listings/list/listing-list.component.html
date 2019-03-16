@@ -10,8 +10,38 @@
       </a>
     </div>
 
+    <div class="col-12 col-md-4 mb-2">
+      <label for="city">{{'title' | translate}}</label>
+      <input type="text" class="form-control" placeholder="{{'title' | translate}}" />
+    </div>
+
+    <div class="col-12 col-md-4 mb-2">
+      <div class="form-group">
+        <label for="city">{{'listings.select-city' | translate}}</label>
+         <select id="city" class="form-control">
+           <option value=""></option>
+           <option
+            [ngValue]="city.id"
+            *ngFor="let city of cities"
+           >
+            {{city.name}}
+           </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="form-group">
+        <label for="">&nbsp;</label>
+        <button class="btn btn-info btn-block">
+          <i class="fas fa-search"></i>
+          {{'search' | translate}}
+        </button>
+      </div>
+    </div>
+
     <div class="col-md-12">
-      <table class="table table-bordered">
+      <table class="table table-bordered" *ngIf="listings.length > 0">
         <tr>
           <td>
             {{'id' | translate}}
@@ -45,7 +75,13 @@
           </td>
         </tr>
       </table>
+
+      <div *ngIf="listings.length === 0">
+        {{'no-listings' | translate}}
+      </div>
+
       <ngb-pagination
+        *ngIf="total > perPage"
         [(page)]="page"
         [pageSize]="perPage"
         [collectionSize]="total"

@@ -13,6 +13,8 @@ export class ListingsService
     return this.http.get(`listing/${id}`)
       .toPromise()
       .then((listing: ListingFormViewModel)=>{
+          listing.registerTo = listing.registerTo.substring(0, 10);
+          listing.registerFrom = listing.registerFrom.substring(0, 10);
           return listing;
       });
   }

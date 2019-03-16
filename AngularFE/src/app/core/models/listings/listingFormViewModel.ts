@@ -12,8 +12,8 @@ export class ListingFormViewModel
     public campaignId: number;
     public campaign: CampaignViewModel;
     public totalPositions: number;
-    public registerFrom: number;
-    public registerTo: number;
+    public registerFrom: string;
+    public registerTo: string;
     public cityId: number;
     public city: CityViewModel;
 

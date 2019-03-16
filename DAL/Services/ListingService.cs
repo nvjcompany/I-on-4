@@ -8,6 +8,7 @@ using DAL.Interfaces.Helpers;
 using System.Collections.Generic;
 using DAL.ExtensionMethods;
 using DAL.ViewModels.Listings;
+using DAL.ViewModels.Search;
 
 namespace DAL.Services
 {
@@ -40,18 +41,34 @@ namespace DAL.Services
             return await base.Create(listing);
         }
 
-        public async Task<List<Listing>> GetListings(string userId, int page)
+        public async Task<List<Listing>> GetListings(string userId, ListingSearchViewModel search)
         {
-            return await this.db.Listings
-                .WhereOwnerIs(userId)
-                .Paginate(10, page)
+            IQueryable<Listing> query = this.db.Listings;
+
+            if (userId != null)
+            {
+                query.WhereOwnerIs(userId);
+            }
+
+            if (search.Title != null)
+            {
+                query.Where(l => l.Title.Contains(search.Title));
+            }
+
+            if (search.CityId != null)
+            {
+                query.Where(l => l.City.Equals(search.CityId.GetValueOrDefault()));
+            }
+
+            return await query
+                .Paginate(10, search.Page != null ? search.Page.GetValueOrDefault() : 1)
                 .ToListAsync();
         }
 
-        public async Task<CompanyListingListPageViewModel> GetListingPage(string userId, int page)
+        public async Task<CompanyListingListPageViewModel> GetListingPage(string userId, ListingSearchViewModel search)
         {
             CompanyListingListPageViewModel model = new CompanyListingListPageViewModel();
-            var listings = await this.GetListings(userId, page);
+            var listings = await this.GetListings(userId, search);
 
             model.Listings = listings.Select(l => new ListingViewModel()
             {
@@ -59,7 +76,7 @@ namespace DAL.Services
                 Title = l.Title,
             }).ToList();
 
-            model.Page = page;
+            model.Page = search.Page.GetValueOrDefault();
             model.Total = await this.db
                 .Listings
                 .WhereOwnerIs(userId)

@@ -6,6 +6,7 @@ using DAL.Entities;
 using DAL.Interfaces.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UnitTestProject.Factory;
+using DAL.ViewModels.Search;
 
 namespace UnitTestProject.Services
 {
@@ -35,7 +36,7 @@ namespace UnitTestProject.Services
             string userId = "not-existingUserId";
             int page = 24;
 
-            var result = await this.service.GetListingPage(userId, page);
+            var result = await this.service.GetListingPage(userId, new ListingSearchViewModel() { Page = page });
             Assert.AreEqual(0, result.Total);
             Assert.AreEqual(0, result.Listings.Count);
             Assert.AreEqual(page, result.Page);
@@ -46,7 +47,7 @@ namespace UnitTestProject.Services
         {
             int page = 1;
 
-            var result = await this.service.GetListingPage(existingUserWithRoleCompany.Id, page);
+            var result = await this.service.GetListingPage(existingUserWithRoleCompany.Id, new ListingSearchViewModel() { Page = page });
             Assert.IsTrue(result.Total > 0);
             Assert.IsTrue(result.Listings.Count > 0);
             Assert.AreEqual(page, result.Page);

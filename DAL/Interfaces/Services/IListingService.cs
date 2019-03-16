@@ -1,5 +1,6 @@
 ﻿using DAL.Entities;
 using DAL.ViewModels.Listings;
+using DAL.ViewModels.Search;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -29,7 +30,7 @@ namespace DAL.Interfaces.Services
         /// <param name="userId"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        Task<List<Listing>> GetListings(string userId, int page);
+        Task<List<Listing>> GetListings(string userId, ListingSearchViewModel search);
 
         /// <summary>
         /// Get company listing page view model.
@@ -37,7 +38,7 @@ namespace DAL.Interfaces.Services
         /// <param name="userId"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        Task<CompanyListingListPageViewModel> GetListingPage(string userId, int page);
+        Task<CompanyListingListPageViewModel> GetListingPage(string userId, ListingSearchViewModel search);
 
         /// <summary>
         /// Get listing with city and company

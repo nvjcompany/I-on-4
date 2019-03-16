@@ -46,7 +46,8 @@ namespace DAL.Services
 
         public async Task<bool> Delete(T obj)
         {
-            this.db.Entry(obj).State = EntityState.Deleted;
+            T existing = this.db.Set<T>().Find(obj.Id);
+            this.db.Entry(existing).State = EntityState.Deleted;
             return await this.SaveChanges();
         }
 
@@ -67,7 +68,7 @@ namespace DAL.Services
                 //context.SaveChanges();
             }
 
-           // this.db.Entry(obj).State = EntityState.Modified;
+            // this.db.Entry(obj).State = EntityState.Modified;
             //this.db.Set<T>().Add(obj);
             return await this.SaveChanges();
         }

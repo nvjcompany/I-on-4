@@ -6,6 +6,7 @@ import { StaticDataService } from '../../../core/services/static-data/static-dat
 import { ListingsService } from '../../../core/services/listings/listings.service';
 import {ListingPageViewModel} from '../../../core/models/listings/listingPageViewModel';
 import {Router} from '@angular/router';
+import {CityViewModel} from '../../../core/models/static-data/cityViewModel';
 
 @Component({
   selector: 'app-listing-list',
@@ -14,6 +15,7 @@ import {Router} from '@angular/router';
 })
 export class ListingListComponent {
   public listings: ListingFormViewModel[] = [];
+  public cities: CityViewModel[] = [];
   public page: number = 1;
   public perPage: number = 10;
   public total: number = 0;
@@ -26,11 +28,14 @@ export class ListingListComponent {
         this.page = model.page;
         this.total = model.total;
       });
+
+    this.staticDataService.getCities().then((cities: CityViewModel[]) => {
+      this.cities = cities;
+    })
   }
 
-  constructor(private listingService: ListingsService)
+  constructor(private listingService: ListingsService, private staticDataService: StaticDataService)
   {
-
     this.load(1);
   }
 

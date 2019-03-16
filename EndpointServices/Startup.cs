@@ -69,8 +69,8 @@ namespace EndpointServices
             }));
 
 
-            services.AddSingleton<IDbContext, IesDbContext>();
-            services.AddSingleton<IStaticDataService, StaticDataService>();
+            services.AddTransient<IDbContext, IesDbContext>();
+            services.AddTransient<IStaticDataService, StaticDataService>();
             services.AddTransient<ICompanyHelper, CompanyHelper>();
             services.AddTransient<IIdentityHelper, IdentityHelper>();
             services.AddTransient<IRegisterService, RegisterService>();

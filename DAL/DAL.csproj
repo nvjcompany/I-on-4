@@ -212,6 +212,7 @@
     <Compile Include="ViewModels\Auth\RegisterViewModel.cs" />
     <Compile Include="ViewModels\Listings\CompanyListingListPageViewModel.cs" />
     <Compile Include="ViewModels\Listings\ListingViewModel.cs" />
+    <Compile Include="ViewModels\Search\ListingSearchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
