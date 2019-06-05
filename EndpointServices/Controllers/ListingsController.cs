@@ -56,10 +56,12 @@ namespace EndpointServices.Controllers
             l.Description = listing.Description;
             l.CityId = listing.CityId;
 
-            if (!await this.service.Create(ClaimsHelper.GetUserId(this.User), l))
-            {
-                return StatusCode(422);
-            }
+            var result = await this.service.Create(ClaimsHelper.GetUserId(this.User), l);
+
+            //if (!await this.service.Create(ClaimsHelper.GetUserId(this.User), l))
+            //{
+            //    return StatusCode(422);
+            //}
 
             return Ok();
         }

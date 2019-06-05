@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { ListingFormViewModel } from '../../../core/models/listings/listingFormViewModel';
-import { EditorConfigService } from '../../../core/services/editor/config';
-import { DatePickerConfigService } from '../../../core/services/datepicker/date-picker-config.service';
 import { StaticDataService } from '../../../core/services/static-data/static-data.service';
 import { ListingsService } from '../../../core/services/listings/listings.service';
-import {ListingPageViewModel} from '../../../core/models/listings/listingPageViewModel';
-import {Router} from '@angular/router';
-import {CityViewModel} from '../../../core/models/static-data/cityViewModel';
+import { ListingPageViewModel } from '../../../core/models/listings/listingPageViewModel';
+import { CityViewModel } from '../../../core/models/static-data/cityViewModel';
 
 @Component({
   selector: 'app-listing-list',

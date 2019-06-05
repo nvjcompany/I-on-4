@@ -179,25 +179,9 @@
     <Compile Include="Interfaces\Services\IRegisterService.cs" />
     <Compile Include="Interfaces\Services\IStaticDataService.cs" />
     <Compile Include="JWT\JWTConfig.cs" />
-    <Compile Include="Migrations\201902101016174_InitialCreate.cs" />
-    <Compile Include="Migrations\201902101016174_InitialCreate.Designer.cs">
-      <DependentUpon>201902101016174_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902101051504_SeedOnly.cs" />
-    <Compile Include="Migrations\201902101051504_SeedOnly.Designer.cs">
-      <DependentUpon>201902101051504_SeedOnly.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902101648113_UserAddons.cs" />
-    <Compile Include="Migrations\201902101648113_UserAddons.Designer.cs">
-      <DependentUpon>201902101648113_UserAddons.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902121940025_NewColumns.cs" />
-    <Compile Include="Migrations\201902121940025_NewColumns.Designer.cs">
-      <DependentUpon>201902121940025_NewColumns.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903101838482_ApplicationTable.cs" />
-    <Compile Include="Migrations\201903101838482_ApplicationTable.Designer.cs">
-      <DependentUpon>201903101838482_ApplicationTable.cs</DependentUpon>
+    <Compile Include="Migrations\201904211045279_SimpleUp.cs" />
+    <Compile Include="Migrations\201904211045279_SimpleUp.Designer.cs">
+      <DependentUpon>201904211045279_SimpleUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -210,29 +194,22 @@
     <Compile Include="ViewModels\Auth\LoginResponseViewModel.cs" />
     <Compile Include="ViewModels\Auth\LoginViewModel.cs" />
     <Compile Include="ViewModels\Auth\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Campaigns\CampaignListPageViewModel.cs" />
+    <Compile Include="ViewModels\Campaigns\CampaignViewModel.cs" />
     <Compile Include="ViewModels\Listings\CompanyListingListPageViewModel.cs" />
     <Compile Include="ViewModels\Listings\ListingViewModel.cs" />
+    <Compile Include="ViewModels\Search\CampaignSearchViewModel.cs" />
     <Compile Include="ViewModels\Search\ListingSearchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902101016174_InitialCreate.resx">
-      <DependentUpon>201902101016174_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902101051504_SeedOnly.resx">
-      <DependentUpon>201902101051504_SeedOnly.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902101648113_UserAddons.resx">
-      <DependentUpon>201902101648113_UserAddons.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902121940025_NewColumns.resx">
-      <DependentUpon>201902121940025_NewColumns.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903101838482_ApplicationTable.resx">
-      <DependentUpon>201903101838482_ApplicationTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904211045279_SimpleUp.resx">
+      <DependentUpon>201904211045279_SimpleUp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

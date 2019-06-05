@@ -7,13 +7,13 @@ namespace DAL.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class SeedOnly : IMigrationMetadata
+    public sealed partial class SimpleUp : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SeedOnly));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SimpleUp));
         
         string IMigrationMetadata.Id
         {
-            get { return "201902101051504_SeedOnly"; }
+            get { return "201904211045279_SimpleUp"; }
         }
         
         string IMigrationMetadata.Source

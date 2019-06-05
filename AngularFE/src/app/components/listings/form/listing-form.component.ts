@@ -21,7 +21,7 @@ export class ListingFormComponent{
     else
     {
       window.scroll(0,0);
-      this.hasError = true;
+      this.hasError = false;
     }
   }
 

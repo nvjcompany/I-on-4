@@ -10,9 +10,9 @@ import { NgDatepickerModule } from 'ng2-datepicker';
 import { DatePickerConfigService } from '../../core/services/datepicker/date-picker-config.service';
 import { StaticDataService } from '../../core/services/static-data/static-data.service';
 import { ListingsService } from '../../core/services/listings/listings.service';
-import {ListingListComponent} from './list/listing-list.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {ListingPreviewComponent} from './preview/listing-preview.component';
+import { ListingListComponent } from './list/listing-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListingPreviewComponent } from './preview/listing-preview.component';
 
 @NgModule({
   declarations: [ListingFormComponent, ListingListComponent, ListingPreviewComponent],

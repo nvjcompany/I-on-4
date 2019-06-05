@@ -5,7 +5,8 @@
         "listings": "Listings",
         "my-profile": "My Profile",
         "applications": "Applications",
-        "exit": "Exit"
+        "exit": "Exit",
+        "campaigns": "Campaigns"
     },
     "home": {
         "title": "Find your best internship program!",
@@ -24,6 +25,7 @@
         "name": "Enter name",
         "startDate": "Choose start date",
         "endDate": "Choose end date",
-        "isActive": "Check if active"
+        "isActive": "Check if active",
+        "campaign-title": "Title"
     }
 }

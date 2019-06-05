@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { CampaignViewModel } from '../../core/models/campaign/campaignViewModel';
-import { CampaignsService } from '../../core/services/campaigns/capmaigns.service';
+import { CampaignViewModel } from '../../../core/models/campaign/campaignViewModel';
+import { CampaignsService } from '../../../core/services/campaigns/capmaigns.service';
 import { DatePickerConfigService } from 'src/app/core/services/datepicker/date-picker-config.service';
 
 @Component({
-  selector: 'app-campaign',
-  templateUrl: './campaign.component.html',
-  styleUrls: ['./campaign.component.scss']
+  selector: 'app-campaign-form',
+  templateUrl: './campaign-form.component.html',
+  styleUrls: ['./campaign-form.component.scss']
 })
-export class CampaignComponent
+export class CampaignFormComponent
 {
   public campaign: CampaignViewModel = new CampaignViewModel();
   constructor(private service: CampaignsService,

@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {ListingFormViewModel} from '../../models/listings/listingFormViewModel';
-import {ListingPageViewModel} from '../../models/listings/listingPageViewModel';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ListingFormViewModel } from '../../models/listings/listingFormViewModel';
+import { ListingPageViewModel } from '../../models/listings/listingPageViewModel';
 
 @Injectable()
 export class ListingsService

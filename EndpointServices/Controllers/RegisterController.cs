@@ -37,6 +37,7 @@ namespace EndpointServices.Controllers
                 UserName = model.Email
             }, model.IsCompany ? "Company" : "Student");
 
+
             if (result == "success")
             {
                 return Ok();
