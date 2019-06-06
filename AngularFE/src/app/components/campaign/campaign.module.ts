@@ -12,7 +12,10 @@ import { CampaignPreviewComponent } from "./preview/campaign-preview.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-  declarations: [CampaignFormComponent, CampaignListComponent, CampaignPreviewComponent],
+  declarations: [
+    CampaignFormComponent,
+    CampaignListComponent,
+    CampaignPreviewComponent],
   imports: [
     CampaignRoutingModule,
     TranslateModule,

@@ -1,56 +1,45 @@
 <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <h1>
-              {{'campaign.heading' | translate}}
-            </h1>
-          </div>
-      
-          <div class="col-12">
-            <div class="form-group">
-              <label for="title">{{'campaign.name' | translate}}</label>
-              <input
-                type="text" class="form-control"
-                id="name" [(ngModel)]="campaign.name"
-              />
-            </div>
-          </div>
-      
-          <div class="col-12">
-            <div class="form-group">
-              <label>{{'campaign.startDate' | translate}}</label>
-              <ng-datepicker
-                [options]="datepickerConfigService.getConfig()"
-                [(ngModel)]="campaign.startDate"></ng-datepicker>
-            </div>
-          </div>
-      
-          <div class="col-12">
-            <div class="form-group">
-              <label>{{'campaign.endDate' | translate}}</label>
-              <ng-datepicker
-                [options]="datepickerConfigService.getConfig()"
-                [(ngModel)]="campaign.endDate"></ng-datepicker>
-            </div>
-          </div>
-      
-          <div class="col-12">
-            <div class="form-check">
-                    <input type="checkbox" [(ngModel)]="campaign.isActive" class="form-check-input">
-              <label class="form-check-label">{{'campaign.isActive' | translate}}</label>
-              
-            </div>
-          </div>
-      
-                          
-          <div class="col-12">
-            <div class="form-group">
-              <button (click)="createCampaign()" class="btn btn-primary">
-                {{'create' | translate}}
-              </button>
-            </div>
-          </div>
-      
-        </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1>
+        {{'campaign.heading' | translate}}
+      </h1>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <label for="title">{{'campaign.name' | translate}}</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="campaign.name" />
       </div>
-      
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <label>{{'campaign.startDate' | translate}}</label>
+        <ng-datepicker [options]="datepickerConfigService.getConfig()" [(ngModel)]="campaign.startDate"></ng-datepicker>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <label>{{'campaign.endDate' | translate}}</label>
+        <ng-datepicker [options]="datepickerConfigService.getConfig()" [(ngModel)]="campaign.endDate"></ng-datepicker>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-check">
+        <input type="checkbox" [(ngModel)]="campaign.isActive" class="form-check-input">
+        <label class="form-check-label">{{'campaign.checkIfActive' | translate}}</label>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="form-group">
+        <button (click)="createCampaign()" class="btn btn-primary">
+          {{'save' | translate}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

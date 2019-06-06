@@ -10,11 +10,12 @@ import { CampaignPageViewModel } from 'src/app/core/models/campaign/campaignPage
   styleUrls: ['./campaign-list.component.scss']
 })
 export class CampaignListComponent {
-  public campaigns: CampaignViewModel[] = [];
+  public campaigns: CampaignViewModel[] = [];  
   public page: number = 1;
   public perPage: number = 10;
   public total: number = 0;
   public titleSearch;
+  public active: boolean = false;
 
   private getCampaigns(page: number): void {
     this.service.list(page, this.titleSearch)
@@ -27,16 +28,20 @@ export class CampaignListComponent {
 
   private load(page: number): void {
     this.getCampaigns(page);
+  }  
+
+  constructor(private service: CampaignsService, 
+    private datepickerConfigService: DatePickerConfigService) {
+    this.load(1);
+  }  
+
+  getActive(){
+    this.active = true;
   }
 
   search() {
     this.getCampaigns(this.page);
   }
-
-  constructor(private service: CampaignsService, private datepickerConfigService: DatePickerConfigService) {
-    this.load(1);
-  }
-
   
   resetFilter()
   {   

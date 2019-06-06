@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { ListingFormComponent } from './form/listing-form.component';
 import { ListingsRoutingModule } from './listings-routing.module';
 import { TranslateModule } from '@ngx-translate/core';
@@ -15,7 +14,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListingPreviewComponent } from './preview/listing-preview.component';
 
 @NgModule({
-  declarations: [ListingFormComponent, ListingListComponent, ListingPreviewComponent],
+  declarations: [
+    ListingFormComponent,
+    ListingListComponent,
+    ListingPreviewComponent
+  ],
   imports: [
     ListingsRoutingModule,
     TranslateModule,

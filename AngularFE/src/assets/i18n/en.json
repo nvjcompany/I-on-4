@@ -1,5 +1,5 @@
 {
-    "create": "Create",
+    "create": "Create new",
     "save": "Save",
     "dashboard": {
         "listings": "Listings",
@@ -25,7 +25,7 @@
         "name": "Enter name",
         "startDate": "Choose start date",
         "endDate": "Choose end date",
-        "isActive": "Check if active",
+        "checkIfActive": "Check if active",
         "campaign-title": "Title"
     }
 }

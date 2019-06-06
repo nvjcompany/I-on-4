@@ -35,18 +35,6 @@ export class CampaignsService {
             });
     }
 
-    store(model: CampaignViewModel): Promise<boolean> {
-        return this.http.post('campaigns', model)
-            .toPromise()
-            .then(response => {
-                return true;
-            },
-                error => {
-                    return false;
-                }
-            );
-    }
-
     update(model: CampaignViewModel): Promise<boolean> {
         model.startDate = null;
         model.endDate = null;        
