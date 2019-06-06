@@ -42,8 +42,8 @@ namespace EndpointServices.Controllers
         {
             Campaign c = new Campaign();
             c.Name = campaign.Name;
-            c.StartDate = campaign.StartDate;
-            c.EndDate = campaign.EndDate;
+            c.StartDate = Convert.ToDateTime(campaign.StartDate);
+            c.EndDate = Convert.ToDateTime(campaign.EndDate);
             c.IsActiveRegistration = campaign.IsActiveRegistration;
 
             var result = await this.service.Create(c);
@@ -57,14 +57,41 @@ namespace EndpointServices.Controllers
         }
 
         [Route("api/campaigns")]
-        public async Task<IActionResult> List([FromQuery]string title, [FromQuery]int? page)
+        public async Task<IActionResult> List([FromQuery]string title, [FromQuery]int? page, [FromQuery]bool active)
         {
             CampaignSearchViewModel model = new CampaignSearchViewModel();
             model.Page = page;
             model.Title = title;
+            model.Active = active;
 
             int p = model.Page != null ? model.Page.GetValueOrDefault() : 1;
             return Json(await this.service.GetCampaignPage(model));
+        }
+
+        [HttpGet]
+        [Route("api/campaign/{id}")]
+        public async Task<IActionResult> Find(int id)
+        {            
+            return Json(await this.service.GetCampaignPreviewPage(id));
+        }
+
+        [HttpPut]
+        [Route("api/campaign")]
+        public async Task<IActionResult> Update(Campaign campaign)
+        {
+            return Ok(await this.service.Update(campaign));
+        }
+
+        [HttpDelete]
+        [Route("api/campaign/{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (!await this.service.Delete(new Campaign() { Id = id }))
+            {
+                return StatusCode(403);
+            }
+
+            return Ok();
         }
     }
 }

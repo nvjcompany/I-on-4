@@ -73,7 +73,7 @@
                         {{campaign.startDate}} - {{campaign.endDate}}
                     </td>
                     <td>
-                        <span *ngIf="campaign.isActive; else elseBlock">registration is Active</span>
+                        <span *ngIf="campaign.isActiveRegistration; else elseBlock">registration is Active</span>
                         <ng-template #elseBlock>registration is CLOSED</ng-template>
                     </td>
                     <td>

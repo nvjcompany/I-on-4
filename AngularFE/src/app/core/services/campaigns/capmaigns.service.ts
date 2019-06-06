@@ -22,27 +22,26 @@ export class CampaignsService {
     find(id: number): Promise<CampaignViewModel> {
         return this.http.get(`campaign/${id}`)
             .toPromise()
-            .then((campaign: CampaignViewModel) => {                
+            .then((campaign: CampaignViewModel) => {   
+                console.log(campaign);
                 return campaign;
             });
     }
 
-    list(page: number, title: string): Promise<CampaignPageViewModel> {
-        return this.http.get(`campaigns?page=${page}&title=${title}`)
+    list(page: number, title: string, active: boolean): Promise<CampaignPageViewModel> {
+        return this.http.get(`campaigns?page=${page}&title=${title}&active=${active}`)
             .toPromise()
             .then((response: CampaignPageViewModel) => {
+                console.log(response);
                 return response;
             });
     }
 
     update(model: CampaignViewModel): Promise<boolean> {
-        model.startDate = null;
-        model.endDate = null;        
-        model.name = null;
-        model.isActive = null;
         return this.http.put(`campaign`, model)
             .toPromise()
             .then((response: boolean) => {
+                console.log(response);
                 return response;
             })
     }

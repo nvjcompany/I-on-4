@@ -4,5 +4,5 @@ export class CampaignPageViewModel
 {
   public page: number;
   public campaigns: CampaignViewModel[];
-  public total: number;
+  public total: number;  
 }

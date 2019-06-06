@@ -30,5 +30,13 @@ namespace DAL.Interfaces.Services
         /// <param name="search"></param>
         /// <returns></returns>
         Task<CampaignListPageViewModel> GetCampaignPage(CampaignSearchViewModel search);
+
+        /// <summary>
+        /// Get campaign
+        /// </summary>
+        /// <param name="campaignId"></param>
+        /// <returns></returns>
+        Task<Campaign> GetCampaignPreviewPage(int campaignId);
+        
     }
 }

@@ -35,7 +35,11 @@ namespace DAL.Services
             if (search.Title != null && search.Title != "undefined")
             {
                 query = query.Where(c => c.Name.Contains(search.Title));
-            }            
+            }
+            if (search.Active)
+            {
+                query = query.Where(c => c.IsActiveRegistration == true);
+            }
 
             return await query
                 .Paginate(10, search.Page != null ? search.Page.GetValueOrDefault() : 1)
@@ -52,6 +56,9 @@ namespace DAL.Services
             {
                 Id = c.Id,
                 Name = c.Name,
+                StartDate = c.StartDate.ToString("dd/MM/yyyy"),
+                EndDate = c.EndDate.ToString("dd/MM/yyyy"),
+                IsActiveRegistration = c.IsActiveRegistration
             }).ToList();
 
             model.Page = search.Page.GetValueOrDefault();
@@ -61,6 +68,22 @@ namespace DAL.Services
 
             return model;
         }
-        
+
+        public async Task<Campaign> GetCampaignPreviewPage(int campaignId)
+        {
+            return await this.db.Campaigns
+                .Where(x => x.Id.Equals(campaignId))
+                .FirstOrDefaultAsync();
+            //var campaign = new CampaignViewModel()
+            //{
+            //    Id = c.Id,
+            //    Name = c.Name,
+            //    StartDate = c.StartDate.ToString("dd/MM/yyyy"),
+            //    EndDate = c.EndDate.ToString("dd/MM/yyyy"),
+            //    IsActiveRegistration = c.IsActiveRegistration
+            //};
+
+            //return campaign;
+        }
     }
 }

@@ -18,7 +18,7 @@ export class CampaignListComponent {
   public active: boolean = false;
 
   private getCampaigns(page: number): void {
-    this.service.list(page, this.titleSearch)
+    this.service.list(page, this.titleSearch, this.active)
       .then((model: CampaignPageViewModel) => {
         this.campaigns = model.campaigns;
         this.page = model.page;
@@ -37,6 +37,7 @@ export class CampaignListComponent {
 
   getActive(){
     this.active = true;
+    this.getCampaigns(this.page);
   }
 
   search() {
@@ -46,6 +47,7 @@ export class CampaignListComponent {
   resetFilter()
   {   
     this.titleSearch = '';
+    this.active = false;
     this.getCampaigns(1);
   }
 
