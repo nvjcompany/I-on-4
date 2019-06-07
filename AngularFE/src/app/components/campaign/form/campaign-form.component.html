@@ -15,14 +15,14 @@
 
     <div class="col-12">
       <div class="form-group">
-        <label>{{'campaign.startDate' | translate}}</label>
+        <label class="form-check-label">{{'campaign.startDate' | translate}}</label>
         <ng-datepicker [options]="datepickerConfigService.getConfig()" [(ngModel)]="campaign.startDate"></ng-datepicker>
       </div>
     </div>
 
     <div class="col-12">
       <div class="form-group">
-        <label>{{'campaign.endDate' | translate}}</label>
+        <label class="form-check-label">{{'campaign.endDate' | translate}}</label>
         <ng-datepicker [options]="datepickerConfigService.getConfig()" [(ngModel)]="campaign.endDate"></ng-datepicker>
       </div>
     </div>

@@ -23,7 +23,6 @@ export class CampaignsService {
         return this.http.get(`campaign/${id}`)
             .toPromise()
             .then((campaign: CampaignViewModel) => {   
-                console.log(campaign);
                 return campaign;
             });
     }
@@ -32,7 +31,6 @@ export class CampaignsService {
         return this.http.get(`campaigns?page=${page}&title=${title}&active=${active}`)
             .toPromise()
             .then((response: CampaignPageViewModel) => {
-                console.log(response);
                 return response;
             });
     }
@@ -41,7 +39,6 @@ export class CampaignsService {
         return this.http.put(`campaign`, model)
             .toPromise()
             .then((response: boolean) => {
-                console.log(response);
                 return response;
             })
     }
