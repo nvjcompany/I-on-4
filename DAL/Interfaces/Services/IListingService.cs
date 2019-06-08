@@ -54,5 +54,13 @@ namespace DAL.Interfaces.Services
         /// <param name="listing"></param>
         /// <returns></returns>
         Task<bool> Delete(string userId, Listing listing);
+
+        /// <summary>
+        /// Apply user to listing applications list
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="listingId"></param>
+        /// <returns></returns>
+        Task<bool> Apply(string userId, int listingId);
     }
 }

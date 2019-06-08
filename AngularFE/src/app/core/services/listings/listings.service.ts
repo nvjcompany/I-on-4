@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ListingFormViewModel} from '../../models/listings/listingFormViewModel';
 import {ListingPageViewModel} from '../../models/listings/listingPageViewModel';
+import { Observable } from 'rxjs';
+import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 
 @Injectable()
 export class ListingsService
@@ -39,6 +41,14 @@ export class ListingsService
           return false;
         }
       );
+  }
+
+  applyToListing(listingId: number) : Observable<Boolean>
+  {
+    return this.http.post(`apply/${listingId}`, {})
+    .pipe(map((res: boolean)=>{
+        return res;
+    }));
   }
 
   update(model: ListingFormViewModel): Promise<boolean>

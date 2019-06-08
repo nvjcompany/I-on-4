@@ -19,5 +19,13 @@
       <div [innerHTML]="listing.description">
       </div>
     </div>
+
+    <div class="col-12" *ngIf="!isApplied">
+      <button (click)="applyToListing()" class="btn btn-info">{{'Apply' | translate}}</button>
+    </div>
+    <div class="col-12" *ngIf="isApplied">
+      <button disabled="disabled" class="btn btn-info">{{'Applied' | translate}}</button>
+    </div>
+
   </div>
 </div>

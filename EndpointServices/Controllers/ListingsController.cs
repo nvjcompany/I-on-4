@@ -14,7 +14,7 @@ using DAL.ViewModels.Search;
 namespace EndpointServices.Controllers
 {
     [ApiController]
-    [Authorize(Roles = "Company")]
+
     public class ListingsController : Controller
     {
         private IListingService service;
@@ -24,6 +24,7 @@ namespace EndpointServices.Controllers
             this.service = service;
         }
 
+        [Authorize(Roles = "Company,Student")]
         [HttpGet]
         [Route("api/listings")]
         //public async Task<IActionResult> List([FromBody]PaginationViewModel model)
@@ -35,16 +36,21 @@ namespace EndpointServices.Controllers
             model.CityId = cityId;
 
             int p = model.Page != null ? model.Page.GetValueOrDefault() : 1;
+
             return Json(await this.service.GetListingPage(ClaimsHelper.GetUserId(this.User), model));
         }
 
+        [Authorize(Roles = "Company,Student")]
         [HttpGet]
         [Route("api/listing/{id}")]
         public async Task<IActionResult> Find(int id)
         {
+            var page = await this.service.GetListingPreviewPage(id);
+            object o = new { Listing = page, Test = 123 };
             return Json(await this.service.GetListingPreviewPage(id));
         }
 
+        [Authorize(Roles = "Company")]
         [HttpPost]
         [Route("api/listings")]
         public async Task<IActionResult> Store(ListingViewModel listing)
@@ -64,6 +70,7 @@ namespace EndpointServices.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Company")]
         [HttpPut]
         [Route("api/listing")]
         public async Task<IActionResult> Update(Listing listing)
@@ -71,6 +78,7 @@ namespace EndpointServices.Controllers
             return Ok(await this.service.Update(ClaimsHelper.GetUserId(this.User), listing));
         }
 
+        [Authorize(Roles = "Company")]
         [HttpDelete]
         [Route("api/listing/{id}")]
         public async Task<IActionResult> Delete(int id)
@@ -81,6 +89,20 @@ namespace EndpointServices.Controllers
             }
 
             return Ok();
+        }
+
+        [Authorize(Roles = "Student")]
+        [Route("api/apply/{id}")]
+        [HttpPost]
+        public async Task<IActionResult> Apply(int id)
+        {
+            if (!await this.service.Apply(ClaimsHelper.GetUserId(this.User), id))
+            {
+                return StatusCode(422);
+            }
+
+
+            return Ok(true);
         }
     }
 }

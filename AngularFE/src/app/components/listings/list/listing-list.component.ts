@@ -21,6 +21,7 @@ export class ListingListComponent {
   public total: number = 0;
   public citySearch;
   public titleSearch;
+  public isCompany: boolean;
 
   private getListings(page: number): void
   {
@@ -53,6 +54,7 @@ export class ListingListComponent {
 
   constructor(private listingService: ListingsService, private staticDataService: StaticDataService)
   {
+    this.isCompany = localStorage.getItem('ROLE') == 'Company' ? true : false;
     this.citySearch = '';
     this.titleSearch = '';
     this.load(1);

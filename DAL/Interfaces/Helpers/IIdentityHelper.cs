@@ -18,5 +18,12 @@ namespace DAL.Interfaces.Helpers
         /// <param name="roleName"></param>
         /// <returns>Returns IdentityRole or null</returns>
         Task<IdentityRole> GetRoleByName(string roleName);
+
+        /// <summary>
+        /// Get role by user id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        Task<IdentityRole> GetRoleByUserId(string userId);
     }
 }
