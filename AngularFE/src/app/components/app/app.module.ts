@@ -18,6 +18,7 @@ import { RegisterModule } from '../register/register.module';
 import { ListingsModule } from '../listings/listings.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CampaignModule } from '../campaign/campaign.module'
+import { UserModule } from "../user/user.module"
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CampaignModule } from '../campaign/campaign.module'
           useFactory: HttpLoaderFactory,
           deps: [HttpClient]
       }
-  })
+    }),
+    UserModule
   ],
   providers: [InterceptService, {
     provide: HTTP_INTERCEPTORS,

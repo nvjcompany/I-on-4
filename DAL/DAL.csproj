@@ -178,6 +178,7 @@
     <Compile Include="Interfaces\Services\ILoginService.cs" />
     <Compile Include="Interfaces\Services\IRegisterService.cs" />
     <Compile Include="Interfaces\Services\IStaticDataService.cs" />
+    <Compile Include="Interfaces\Services\IUserService.cs" />
     <Compile Include="JWT\JWTConfig.cs" />
     <Compile Include="Migrations\201904211045279_SimpleUp.cs" />
     <Compile Include="Migrations\201904211045279_SimpleUp.Designer.cs">
@@ -191,6 +192,7 @@
     <Compile Include="Services\LoginService.cs" />
     <Compile Include="Services\RegisterService.cs" />
     <Compile Include="Services\StaticDataService.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\Auth\LoginResponseViewModel.cs" />
     <Compile Include="ViewModels\Auth\LoginViewModel.cs" />
     <Compile Include="ViewModels\Auth\RegisterViewModel.cs" />
@@ -200,6 +202,7 @@
     <Compile Include="ViewModels\Listings\ListingViewModel.cs" />
     <Compile Include="ViewModels\Search\CampaignSearchViewModel.cs" />
     <Compile Include="ViewModels\Search\ListingSearchViewModel.cs" />
+    <Compile Include="ViewModels\User\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

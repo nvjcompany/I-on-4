@@ -77,6 +77,7 @@ namespace EndpointServices
             services.AddTransient<ILoginService, LoginService>();
             services.AddTransient<IListingService, ListingService>();
             services.AddTransient<ICampaignService, CampaignService>();
+            services.AddTransient<IUserService, UserService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

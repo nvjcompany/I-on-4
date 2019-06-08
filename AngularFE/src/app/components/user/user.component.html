@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>
+                {{'campaign.heading' | translate}}
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="title">{{'user.username' | translate}}</label>
+                <input type="text" readonly class="form-control" id="username" [(ngModel)]="user.userName" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label class="form-check-label">{{'user.email' | translate}}</label>
+                <input type="text" readonly class="form-control" id="email" [(ngModel)]="user.email" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label class="form-check-label">{{'user.name' | translate}}</label>
+                <input type="text" readonly class="form-control" id="name" [(ngModel)]="user.name" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label class="form-check-label">{{'user.lastName' | translate}}</label>
+                <input type="text" readonly class="form-control" id="lastName" [(ngModel)]="user.lastName" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label class="form-check-label">{{'user.oldPassword' | translate}}</label>
+                <input type="password" class="form-control" id="oldPassword" [(ngModel)]="user.oldPassword" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label class="form-check-label">{{'user.newPassword' | translate}}</label>
+                <input type="password" class="form-control" id="newPassword" [(ngModel)]="user.newPassword" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <button (click)="updateUser()" class="btn btn-primary">
+                    {{'save' | translate}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
