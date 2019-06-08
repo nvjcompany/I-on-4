@@ -14,7 +14,7 @@ namespace DAL.Database
 {
     public class IesDbContext : IdentityDbContext<User>, IDbContext
     {
-        public IesDbContext() : base("IES")
+        public IesDbContext() : base("name=DefaultConnection")
         {
             Configuration.ProxyCreationEnabled = false;
             Configuration.LazyLoadingEnabled = false;

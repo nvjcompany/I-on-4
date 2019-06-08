@@ -9,7 +9,7 @@ export class RegisterService{
 
     registerUser(model: RegisterViewModel): Promise<boolean>
     {
-        return this.http.post('test', model)
+        return this.http.post('register', model)
             .toPromise()
             .then( ( ress: boolean ) => {
                 return true;

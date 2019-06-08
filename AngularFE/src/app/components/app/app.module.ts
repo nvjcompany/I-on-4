@@ -16,8 +16,9 @@ import { HomePageModule } from '../home-page/home-page.module';
 import { FooterComponent } from '../footer/footer.component';
 import { RegisterModule } from '../register/register.module';
 import { ListingsModule } from '../listings/listings.module';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CampaignModule } from '../campaign/campaign.module'
+
 @NgModule({
   declarations: [
     AppComponent,

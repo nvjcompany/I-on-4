@@ -1,4 +1,4 @@
-import {ListingFormViewModel} from './listingFormViewModel';
+import { ListingFormViewModel } from './listingFormViewModel';
 
 export class ListingPageViewModel
 {

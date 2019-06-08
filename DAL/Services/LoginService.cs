@@ -61,10 +61,11 @@ namespace DAL.Services
 
         public async Task<(string token, string message)> Attempt(string email, string password)
         {
-            User u = await this.context.Users
-                .Include(user => user.Roles)
-                .Where(x => x.Email == email)
-                .FirstOrDefaultAsync();
+
+            User u  = await this.context.Users
+               .Include(user => user.Roles)
+               .Where(x => x.Email == email)
+               .FirstOrDefaultAsync();
 
             if (u == null)
             {

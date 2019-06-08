@@ -1,3 +1,62 @@
-<p>
-  admin-home
-</p>
+<div class="row mt-3">
+  <!-- My Profile  -->
+  <div class="col-xl-4 col-md-6 mb-4 text-light hoverBox">
+    <div class="card border-left-primary shadow h-100 py-2 bg-primary">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold  text-uppercase mb-1">
+              <h3>
+                {{ 'dashboard.my-profile' | translate }}
+              </h3>
+            </div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-user fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- My Profile End  -->
+
+  <!-- Campaigns  -->
+  <div class="col-xl-4 col-md-6 mb-4 text-light hoverBox" (click)="redirect('campaigns')">
+      <div class="card border-left-primary shadow h-100 py-2 bg-warning">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="text-xs font-weight-bold  text-uppercase mb-1">
+                <h3>
+                  {{ 'dashboard.campaigns' | translate }}
+                </h3>
+              </div>
+            </div>
+            <div class="col-auto">
+              <i class="fas fa-user fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Campaigns End  -->
+
+  <div class="col-xl-4 col-md-6 mb-4 text-light hoverBox" (click)="redirect('logout')">
+    <div class="card border-left-primary shadow h-100 py-2 bg-danger">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold  text-uppercase mb-1">
+              <h3>
+                {{ 'dashboard.exit' | translate }}
+              </h3>
+            </div>
+          </div>
+          <div class="col-auto">
+            <i class="fas fa-sign-out-alt fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
