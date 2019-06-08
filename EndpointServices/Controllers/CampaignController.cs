@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using DAL.Interfaces.Services;
 using DAL.ViewModels.Search;
 using DAL.ViewModels.Campaigns;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EndpointServices.Controllers
 {
@@ -36,6 +37,7 @@ namespace EndpointServices.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         [Route("api/campaign/create")]
         public async Task<IActionResult> Store(CampaignViewModel campaign)
@@ -56,6 +58,7 @@ namespace EndpointServices.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Administrator")]
         [Route("api/campaigns")]
         public async Task<IActionResult> List([FromQuery]string title, [FromQuery]int? page, [FromQuery]bool active)
         {
@@ -68,6 +71,7 @@ namespace EndpointServices.Controllers
             return Json(await this.service.GetCampaignPage(model));
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpGet]
         [Route("api/campaign/{id}")]
         public async Task<IActionResult> Find(int id)
@@ -75,6 +79,7 @@ namespace EndpointServices.Controllers
             return Json(await this.service.GetCampaignPreviewPage(id));
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpPut]
         [Route("api/campaign")]
         public async Task<IActionResult> Update(Campaign campaign)
@@ -82,6 +87,7 @@ namespace EndpointServices.Controllers
             return Ok(await this.service.Update(campaign));
         }
 
+        [Authorize(Roles = "Administrator")]
         [HttpDelete]
         [Route("api/campaign/{id}")]
         public async Task<IActionResult> Delete(int id)

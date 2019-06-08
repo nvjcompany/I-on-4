@@ -19,6 +19,7 @@ import { ListingsModule } from '../listings/listings.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CampaignModule } from '../campaign/campaign.module'
 import { UserModule } from "../user/user.module"
+import { ApplicationsModule } from '../applications/applications.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { UserModule } from "../user/user.module"
     RouterModule.forRoot([]),
     HttpClientModule,
     CampaignModule,
+    ApplicationsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

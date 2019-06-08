@@ -12,6 +12,7 @@ export class ListingPreviewComponent implements OnInit {
   public listing: ListingFormViewModel;
   public isCompany: boolean;
   public isApplied: boolean;
+  public linkedinUrl: string = '';
 
   constructor(private listingService: ListingsService,
     private route: ActivatedRoute) { }
@@ -28,7 +29,13 @@ export class ListingPreviewComponent implements OnInit {
   }
 
   applyToListing() : void {
-    this.listingService.applyToListing(this.listing.id)
+    console.log(this.linkedinUrl);
+    if(this.linkedinUrl.length  < 10)
+    {
+      alert('Please enter valid link!');
+      return;
+    }
+    this.listingService.applyToListing(this.listing.id, this.linkedinUrl)
     .subscribe((isOk: boolean) => {
       this.isApplied = isOk;
     });

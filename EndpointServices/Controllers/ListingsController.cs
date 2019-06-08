@@ -96,9 +96,9 @@ namespace EndpointServices.Controllers
         [Authorize(Roles = "Student")]
         [Route("api/apply/{id}")]
         [HttpPost]
-        public async Task<IActionResult> Apply(int id)
+        public async Task<IActionResult> Apply(int id, ApplyViewModel model)
         {
-            if (!await this.service.Apply(ClaimsHelper.GetUserId(this.User), id))
+            if (!await this.service.Apply(ClaimsHelper.GetUserId(this.User), id, model.LinkedinUrl))
             {
                 return StatusCode(422);
             }

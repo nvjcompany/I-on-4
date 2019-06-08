@@ -66,7 +66,7 @@ namespace DAL.Services
                .Applications.Where(x => x.UserId.Equals(userId) && x.ListingId.Equals(listingId))
                .FirstOrDefaultAsync();
 
-            if (isAlreadyApplied != null)
+            if (isAlreadyApplied == null)
             {
                 return false;
             }
@@ -120,7 +120,7 @@ namespace DAL.Services
             return model;
         }
 
-        public async Task<bool> Apply(string userId, int listingId)
+        public async Task<bool> Apply(string userId, int listingId, string linkedinUrl)
         {
 
             bool isApplied = await this.CheckIsApplied(userId, listingId);
@@ -130,7 +130,11 @@ namespace DAL.Services
                 return false;
             }
 
-            this.db.Applications.Add(new Application() { ListingId = listingId, UserId = userId, CreatedAt = DateTime.Now });
+            this.db.Applications.Add(new Application() { ListingId = listingId,
+                UserId = userId, CreatedAt = DateTime.Now,
+                LinkedinUrl = linkedinUrl,
+                IsApproved = 0
+            });
             int result = await this.db.SaveChangesAsync();
 
             return result == 1 ? true : false;

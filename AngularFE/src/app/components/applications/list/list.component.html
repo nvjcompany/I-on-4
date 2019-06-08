@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="col-12">
+    <h1>List Applications</h1>
+    <table class="table table-bordered">
+      <tr>
+        <td>Id</td>
+        <td>User</td>
+        <td>
+          Listing
+        </td>
+        <td>Is Approved</td>
+        <td *ngIf="isCompany">
+          Actions
+        </td>
+      </tr>
+      <tr *ngFor="let app of applications">
+        <td>{{app.id}}</td>
+        <td>
+          {{app.user.name}} {{app.user.lastName}} <br/>
+          {{app.user.email}} <br/>
+          <a target="_blank" [href]="app.linkedinUrl" class="btn btn-info">
+            Linkedin Profile
+          </a>
+        </td>
+        <td>
+          {{app.listing.id}}<br/>
+          {{app.listing.title}}
+        </td>
+        <td>
+          <span style="color: greenyellow" *ngIf="app.isApproved == 1">Approved</span>
+          <span style="color: red" *ngIf="app.isApproved == 2">Rejected</span>
+          <span style="color: silver" *ngIf="app.isApproved == 0">For review</span>
+        </td>
+        <td *ngIf="isCompany">
+          <button (click)="changeStatus(app.id, 1)"
+                  class="btn btn-success">Approve</button>
+          &nbsp;&nbsp;&nbsp;
+          <button (click)="changeStatus(app.id, 2)"
+                  class="btn btn-danger">Reject</button>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+</div>

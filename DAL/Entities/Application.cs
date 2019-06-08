@@ -21,6 +21,9 @@ namespace DAL.Entities
         [ForeignKey("UserId")]
         public User User { get; set; }
 
+        public int? IsApproved { get; set; }
+        public string LinkedinUrl { get; set; }
+
         public DateTime CreatedAt { get; set; }
     }
 }

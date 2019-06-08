@@ -60,7 +60,8 @@ namespace DAL.Interfaces.Services
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="listingId"></param>
+        /// <param name="linkedinUrl"></param>
         /// <returns></returns>
-        Task<bool> Apply(string userId, int listingId);
+        Task<bool> Apply(string userId, int listingId, string linkedinUrl);
     }
 }

@@ -43,9 +43,9 @@ export class ListingsService
       );
   }
 
-  applyToListing(listingId: number) : Observable<Boolean>
+  applyToListing(listingId: number, linkedinUrl: string) : Observable<Boolean>
   {
-    return this.http.post(`apply/${listingId}`, {})
+    return this.http.post(`apply/${listingId}`, {LinkedinUrl: linkedinUrl})
     .pipe(map((res: boolean)=>{
         return res;
     }));
