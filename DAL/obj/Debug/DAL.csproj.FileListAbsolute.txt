@@ -63,11 +63,6 @@ C:\Users\nvj\source\repos\IES\DAL\bin\Debug\System.Diagnostics.DiagnosticSource.
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\System.Interactive.Async.xml
 C:\Users\nvj\source\repos\IES\DAL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.Migrations.InitialCreate.resources
-C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.Migrations.SeedOnly.resources
-C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.Migrations.UserAddons.resources
-C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.Migrations.NewColumns.resources
-C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.Migrations.ApplicationTable.resources
 C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.csproj.CopyComplete
@@ -146,3 +141,4 @@ D:\UNI\I-on-4\DAL\obj\Debug\DAL.pdb
 D:\UNI\I-on-4\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 D:\UNI\I-on-4\DAL\obj\Debug\DAL.Migrations.SimpleUp.resources
 D:\UNI\I-on-4\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+C:\Users\nvj\source\repos\IES\DAL\obj\Debug\DAL.Migrations.SimpleUp.resources

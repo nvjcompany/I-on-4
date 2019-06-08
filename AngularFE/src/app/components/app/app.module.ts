@@ -18,6 +18,8 @@ import { RegisterModule } from '../register/register.module';
 import { ListingsModule } from '../listings/listings.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CampaignModule } from '../campaign/campaign.module'
+import { ApplicationsModule } from '../applications/applications.module';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { CampaignModule } from '../campaign/campaign.module'
     RouterModule.forRoot([]),
     HttpClientModule,
     CampaignModule,
+    ApplicationsModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
